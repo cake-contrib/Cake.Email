@@ -3,10 +3,10 @@
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>Cake.Email</id>
     <version>0.0.0</version>
-    <authors>gep13</authors>
-    <owners>gep13</owners>
+    <authors>jericho</authors>
+    <owners>jericho cake-contrib</owners>
     <description>Cake Email AddIn.</description>
-    <summary>Cake AddIn that extends Cake with ability to execute the gem command line utility.</summary>
+    <summary>Cake AddIn that extends Cake with ability to send emails via a SMTP server.</summary>
     <licenseUrl>https://github.com/cake-contrib/Cake.Email/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/cake-contrib/Cake.Email/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>

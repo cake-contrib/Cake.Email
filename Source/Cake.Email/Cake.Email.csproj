@@ -57,6 +57,10 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="EmailAliases.cs" />
+    <Compile Include="EmailProvider.cs" />
+    <Compile Include="EmailResult.cs" />
+    <Compile Include="EmailSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
