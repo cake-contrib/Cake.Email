@@ -4,4 +4,41 @@ Cake.Email is an Addin for [Cake](http://cakebuild.net/) which allows the sendin
 
 ```csharp
 #addin Cake.Email
+
+Task("SendEmail")
+    .Does(() =>
+{
+    try
+    {
+        var sendEmailResult = Email.Send(
+                senderName: "Bob Smith", 
+                senderAddress: "bob@example.com",
+                recipientName: "Jane Doe",
+                recipientAddress: "jane@example.com",
+                subject: "This is a test",
+                content: "<html><body>This is a test</body></html>",
+                settings: new EmailSettings 
+                {
+                    SmtpHost = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    Username = "my_gmail_address@gmail.com",
+                    Password = "my_password"
+                }
+        );
+
+        if (sendEmailResult.Ok)
+        {
+            Information("Email succcessfully sent");
+        }
+        else
+        {
+            Error("Failed to send email: {0}", sendEmailResult.Error);
+        }
+    }
+    catch(Exception ex)
+    {
+        Error("{0}", ex);
+    }
+});
 ```
