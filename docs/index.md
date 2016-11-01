@@ -10,13 +10,14 @@ Task("SendEmail")
 {
     try
     {
-        var sendEmailResult = Email.Send(
+        var result = Email.Send(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
                 recipientName: "Jane Doe",
                 recipientAddress: "jane@example.com",
                 subject: "This is a test",
                 content: "<html><body>This is a test</body></html>",
+                sendAsHtml: true,
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
@@ -27,13 +28,13 @@ Task("SendEmail")
                 }
         );
 
-        if (sendEmailResult.Ok)
+        if (result.Ok)
         {
             Information("Email succcessfully sent");
         }
         else
         {
-            Error("Failed to send email: {0}", sendEmailResult.Error);
+            Error("Failed to send email: {0}", result.Error);
         }
     }
     catch(Exception ex)
