@@ -14,8 +14,8 @@
     <tags>Cake, Script, Build, Email</tags>
   </metadata>
   <files>
-    <file src="Cake.Email.dll" />
-    <file src="Cake.Email.pdb" />
-    <file src="Cake.Email.xml" />
+    <file src="Cake.Email.dll" target="lib\net45" />
+    <file src="Cake.Email.pdb" target="lib\net45" />
+    <file src="Cake.Email.xml" target="lib\net45" />
   </files>
 </package>
