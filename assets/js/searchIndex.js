@@ -34,8 +34,8 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"EmailSettings",
-        content:"EmailSettings",
+        title:"EmailAliases",
+        content:"EmailAliases",
         description:'',
         tags:''
     });
@@ -50,8 +50,8 @@ var searchModule = function() {
 
     a({
         id:2,
-        title:"EmailAliases",
-        content:"EmailAliases",
+        title:"EmailSettings",
+        content:"EmailSettings",
         description:'',
         tags:''
     });
@@ -65,8 +65,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
-        title:"EmailSettings",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailAliases',
+        title:"EmailAliases",
         description:""
     });
 
@@ -77,8 +77,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailAliases',
-        title:"EmailAliases",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
+        title:"EmailSettings",
         description:""
     });
 
