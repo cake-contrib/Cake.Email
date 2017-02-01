@@ -21,6 +21,10 @@ Cake.Email is an Addin for [Cake](http://cakebuild.net/) which allows sending of
 
 [![Coverage Status](https://coveralls.io/repos/github/cake-contrib/Cake.Email/badge.svg)](https://coveralls.io/github/cake-contrib/Cake.Email)
 
+## Quick Links
+
+- [Documentation](https://cake-contrib.github.io/Cake.Email/)
+
 ## Chat Room
 Come join in the conversation about Cake.Email in our Gitter Chat Room
 
