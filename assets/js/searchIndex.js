@@ -34,16 +34,16 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"EmailProvider",
-        content:"EmailProvider",
+        title:"EmailResult",
+        content:"EmailResult",
         description:'',
         tags:''
     });
 
     a({
         id:1,
-        title:"EmailResult",
-        content:"EmailResult",
+        title:"EmailProvider",
+        content:"EmailProvider",
         description:'',
         tags:''
     });
@@ -65,14 +65,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
-        title:"EmailProvider",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailResult',
+        title:"EmailResult",
         description:""
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailResult',
-        title:"EmailResult",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
+        title:"EmailProvider",
         description:""
     });
 
