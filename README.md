@@ -9,7 +9,7 @@ Cake.Email is an Addin for [Cake](http://cakebuild.net/) which allows sending of
 | |Stable|Pre-release|
 |:--:|:--:|:--:|
 |GitHub Release|-|[![GitHub release](https://img.shields.io/github/release/cake-contrib/Cake.Email.svg)](https://github.com/cake-contrib/Cake.Email/releases/latest)|
-|Package|[![NuGet](https://img.shields.io/nuget/v/Cake.Email.svg)](https://www.nuget.org/packages/Cake.Email)|[![MyGet](https://img.shields.io/myget/cake-contrib/vpre/Cake.Email.svg)](http://myget.org/gallery/Cake.Email)|
+|Package|[![NuGet](https://img.shields.io/nuget/v/Cake.Email.svg)](https://www.nuget.org/packages/Cake.Email)|[![MyGet](https://img.shields.io/myget/cake-contrib/vpre/Cake.Email.svg)](http://myget.org/feed/cake-contrib/package/nuget/Cake.Email)|
 
 ## Build Status
 
