@@ -160,7 +160,11 @@ namespace Cake.Email
         ///     var result = Email.Send(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
-        ///         recipient: new MailAddress("jane@example.com", "Jane Doe"),
+        ///         recipients: new[]
+        ///         {
+        ///             new MailAddress("jane@example.com", "Jane Doe"),
+        ///             new MailAddress("bod@example.com", "Bob Smith"),
+        ///         },
         ///         subject: "This is a test",
         ///         content: "<html><body>This is a test</body></html>",
         ///         sendAsHtml: true,
