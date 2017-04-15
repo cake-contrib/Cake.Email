@@ -52,7 +52,6 @@ Task("SendEmail")
 {
     try
     {
-        var recipients = 
         var result = Email.Send(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
