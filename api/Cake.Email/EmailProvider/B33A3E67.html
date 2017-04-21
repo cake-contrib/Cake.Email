@@ -183,53 +183,53 @@
 
 	<h1 id="Examples">Examples</h1>
 	<div>
-    var smtpHost = "... your smtp host ...";
-    var port = 1234;
-    var enableSsl = true;
-    var username = "... your username ...";
-    var password = "... your password ...";
-    var attachments = new[]
-    {
-        Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-        Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-        Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
-    };
-    try
-    {
-        var result = Email.Send(
-            senderName: "Bob Smith",
-            senderAddress: "bob@example.com",
-            recipients: new[]
-            {
-                new MailAddress("jane@example.com", "Jane Doe"),
-                new MailAddress("bod@example.com", "Bob Smith"),
-            },
-            subject: "This is a test",
-            htmlContent: "This is a test",
-            textContent: "This is the text only version of this email",
-            attachments: attachments,
-            settings: new EmailSettings
-            {
-                SmtpHost = smtpHost,
-                Port = port,
-                EnableSsl = enableSsl,
-                Username = username,
-                Password = password
-            }
-        );
-        if (result.Ok)
+    <pre><code class="cs">var smtpHost = "... your smtp host ...";
+var port = 1234;
+var enableSsl = true;
+var username = "... your username ...";
+var password = "... your password ...";
+var attachments = new[]
+{
+    Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
+    Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+    Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+};
+try
+{
+    var result = Email.Send(
+        senderName: "Bob Smith",
+        senderAddress: "bob@example.com",
+        recipients: new[]
         {
-            Information("Email succcessfully sent");
-        }
-        else
+            new MailAddress("jane@example.com", "Jane Doe"),
+            new MailAddress("bod@example.com", "Bob Smith"),
+        },
+        subject: "This is a test",
+        htmlContent: "This is a test",
+        textContent: "This is the text only version of this email",
+        attachments: attachments,
+        settings: new EmailSettings
         {
-            Error("Failed to send email: {0}", result.Error);
+            SmtpHost = smtpHost,
+            Port = port,
+            EnableSsl = enableSsl,
+            Username = username,
+            Password = password
         }
-    }
-    catch(Exception ex)
+    );
+    if (result.Ok)
     {
-        Error("{0}", ex);
+        Information("Email succcessfully sent");
     }
+    else
+    {
+        Error("Failed to send email: {0}", result.Error);
+    }
+}
+catch(Exception ex)
+{
+    Error("{0}", ex);
+}</code></pre>
     </div>
 
 
