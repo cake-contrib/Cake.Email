@@ -34,8 +34,8 @@ namespace Cake.Email
         /// <param name="recipientName">The name of the person who will receive the email</param>
         /// <param name="recipientAddress">The email address of the person who will recieve the email</param>
         /// <param name="subject">The subject line of the email</param>
-        /// <param name="content">The body of the email</param>
-        /// <param name="sendAsHtml">Indicates if the content should be sent as HTML</param>
+        /// <param name="htmlContent">The HTML content of the email</param>
+        /// <param name="textContent">The text content of the email</param>
         /// <param name="settings">The settings to be used when sending the email</param>
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
@@ -52,8 +52,8 @@ namespace Cake.Email
         ///         recipientName: "Jane Doe",
         ///         recipientAddress: "jane@example.com",
         ///         subject: "This is a test",
-        ///         content: "<html><body>This is a test</body></html>",
-        ///         sendAsHtml: true,
+        ///         htmlContent: "<html><body>This is a test</body></html>",
+        ///         textContent: "This is the text only version of this email",
         ///         settings: new EmailSettings
         ///         {
         ///             SmtpHost = smtpHost,
@@ -77,10 +77,10 @@ namespace Cake.Email
         ///     Error("{0}", ex);
         /// }
         /// </example>
-        public EmailResult SendEmail(string senderName, string senderAddress, string recipientName, string recipientAddress, string subject, string content, bool sendAsHtml, EmailSettings settings)
+        public EmailResult SendEmail(string senderName, string senderAddress, string recipientName, string recipientAddress, string subject, string htmlContent, string textContent, EmailSettings settings)
         {
             var recipient = new MailAddress(recipientAddress, recipientName);
-            return SendEmail(senderName, senderAddress, recipient, subject, content, sendAsHtml, settings);
+            return SendEmail(senderName, senderAddress, recipient, subject, htmlContent, textContent, settings);
         }
 
         /// <summary>
@@ -90,8 +90,8 @@ namespace Cake.Email
         /// <param name="senderAddress">The email address of the person sending the email</param>
         /// <param name="recipient">The recipient who will receive the email</param>
         /// <param name="subject">The subject line of the email</param>
-        /// <param name="content">The body of the email</param>
-        /// <param name="sendAsHtml">Indicates if the content should be sent as HTML</param>
+        /// <param name="htmlContent">The HTML content of the email</param>
+        /// <param name="textContent">The text content of the email</param>
         /// <param name="settings">The settings to be used when sending the email</param>
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
@@ -107,8 +107,8 @@ namespace Cake.Email
         ///         senderAddress: "bob@example.com",
         ///         recipient: new MailAddress("jane@example.com", "Jane Doe"),
         ///         subject: "This is a test",
-        ///         content: "<html><body>This is a test</body></html>",
-        ///         sendAsHtml: true,
+        ///         htmlContent: "<html><body>This is a test</body></html>",
+        ///         textContent: "This is the text only version of this email",
         ///         settings: new EmailSettings
         ///         {
         ///             SmtpHost = smtpHost,
@@ -132,10 +132,10 @@ namespace Cake.Email
         ///     Error("{0}", ex);
         /// }
         /// </example>
-        public EmailResult SendEmail(string senderName, string senderAddress, MailAddress recipient, string subject, string content, bool sendAsHtml, EmailSettings settings)
+        public EmailResult SendEmail(string senderName, string senderAddress, MailAddress recipient, string subject, string htmlContent, string textContent, EmailSettings settings)
         {
             var recipients = new[] { recipient };
-            return SendEmail(senderName, senderAddress, recipients, subject, content, sendAsHtml, settings);
+            return SendEmail(senderName, senderAddress, recipients, subject, htmlContent, textContent, settings);
         }
 
         /// <summary>
@@ -145,8 +145,8 @@ namespace Cake.Email
         /// <param name="senderAddress">The email address of the person sending the email</param>
         /// <param name="recipients">An enumeration of recipients who will receive the email</param>
         /// <param name="subject">The subject line of the email</param>
-        /// <param name="content">The body of the email</param>
-        /// <param name="sendAsHtml">Indicates if the content should be sent as HTML</param>
+        /// <param name="htmlContent">The HTML content of the email</param>
+        /// <param name="textContent">The text content of the email</param>
         /// <param name="settings">The settings to be used when sending the email</param>
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
@@ -166,8 +166,8 @@ namespace Cake.Email
         ///             new MailAddress("bod@example.com", "Bob Smith"),
         ///         },
         ///         subject: "This is a test",
-        ///         content: "<html><body>This is a test</body></html>",
-        ///         sendAsHtml: true,
+        ///         htmlContent: "<html><body>This is a test</body></html>",
+        ///         textContent: "This is the text only version of this email",
         ///         settings: new EmailSettings
         ///         {
         ///             SmtpHost = smtpHost,
@@ -191,7 +191,7 @@ namespace Cake.Email
         ///     Error("{0}", ex);
         /// }
         /// </example>
-        public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable<MailAddress> recipients, string subject, string content, bool sendAsHtml, EmailSettings settings)
+        public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable<MailAddress> recipients, string subject, string htmlContent, string textContent, EmailSettings settings)
         {
             try
             {
@@ -214,16 +214,31 @@ namespace Cake.Email
 
                     using (var message = new MailMessage())
                     {
-                        message.Body = content;
-                        message.BodyEncoding = Encoding.UTF8;
                         message.From = from;
                         message.Subject = subject;
                         message.SubjectEncoding = Encoding.UTF8;
-                        message.IsBodyHtml = sendAsHtml;
 
                         foreach (var recipient in recipients.Where(r => r != null))
                         {
                             message.To.Add(recipient);
+                        }
+
+                        /*
+                            IMPORTANT: the order of body parts is significant.
+                            Parts in a multipart MIME message should be in order of increasing preference
+                            See: https://www.ietf.org/rfc/rfc1521.txt (section 7.2.3)
+                        */
+
+                        if (!string.IsNullOrEmpty(textContent))
+                        {
+                            var textView = AlternateView.CreateAlternateViewFromString(textContent, Encoding.UTF8, "text/plain");
+                            message.AlternateViews.Add(textView);
+                        }
+
+                        if (!string.IsNullOrEmpty(htmlContent))
+                        {
+                            var htmlView = AlternateView.CreateAlternateViewFromString(htmlContent, Encoding.UTF8, "text/html");
+                            message.AlternateViews.Add(htmlView);
                         }
 
                         client.Send(message);
