@@ -42,6 +42,7 @@ namespace Cake.Email
         /// <param name="settings">The settings to be used when sending the email</param>
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
+        /// <code>
         /// var smtpHost = "... your smtp host ...";
         /// var port = 1234;
         /// var enableSsl = true;
@@ -86,6 +87,7 @@ namespace Cake.Email
         /// {
         ///     Error("{0}", ex);
         /// }
+        /// </code>
         /// </example>
         public EmailResult SendEmail(string senderName, string senderAddress, string recipientName, string recipientAddress, string subject, string htmlContent, string textContent, IEnumerable<AttachmentBase> attachments, EmailSettings settings)
         {
@@ -106,6 +108,7 @@ namespace Cake.Email
         /// <param name="settings">The settings to be used when sending the email</param>
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
+        /// <code>
         /// var smtpHost = "... your smtp host ...";
         /// var port = 1234;
         /// var enableSsl = true;
@@ -149,6 +152,7 @@ namespace Cake.Email
         /// {
         ///     Error("{0}", ex);
         /// }
+        /// </code>
         /// </example>
         public EmailResult SendEmail(string senderName, string senderAddress, MailAddress recipient, string subject, string htmlContent, string textContent, IEnumerable<AttachmentBase> attachments, EmailSettings settings)
         {
@@ -169,6 +173,7 @@ namespace Cake.Email
         /// <param name="settings">The settings to be used when sending the email</param>
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
+        /// <code>
         /// var smtpHost = "... your smtp host ...";
         /// var port = 1234;
         /// var enableSsl = true;
@@ -216,6 +221,7 @@ namespace Cake.Email
         /// {
         ///     Error("{0}", ex);
         /// }
+        /// </code>
         /// </example>
         public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable<MailAddress> recipients, string subject, string htmlContent, string textContent, IEnumerable<AttachmentBase> attachments, EmailSettings settings)
         {
