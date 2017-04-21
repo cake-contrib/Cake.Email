@@ -29,7 +29,7 @@ namespace Cake.Email
         }
 
         /// <summary>
-        /// Sends an email via the SendGrid API, based on the provided settings
+        /// Sends an email via SMTP, based on the provided settings
         /// </summary>
         /// <param name="senderName">The name of the person sending the email</param>
         /// <param name="senderAddress">The email address of the person sending the email</param>
@@ -96,7 +96,7 @@ namespace Cake.Email
         }
 
         /// <summary>
-        /// Sends an email via the SendGrid API, based on the provided settings
+        /// Sends an email via SMTP, based on the provided settings
         /// </summary>
         /// <param name="senderName">The name of the person sending the email</param>
         /// <param name="senderAddress">The email address of the person sending the email</param>
@@ -161,7 +161,7 @@ namespace Cake.Email
         }
 
         /// <summary>
-        /// Sends an email via the SendGrid API, based on the provided settings
+        /// Sends an email via SMTP, based on the provided settings
         /// </summary>
         /// <param name="senderName">The name of the person sending the email</param>
         /// <param name="senderAddress">The email address of the person sending the email</param>

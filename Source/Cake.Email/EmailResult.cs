@@ -4,7 +4,7 @@ using Cake.Core.Annotations;
 namespace Cake.Email
 {
     /// <summary>
-    /// The result of SendGridProvider API post
+    /// The result of EmailProvider
     /// </summary>
     [CakeAliasCategory("Email")]
     public sealed class EmailResult
