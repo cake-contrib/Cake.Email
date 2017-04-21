@@ -1,0 +1,13 @@
+---
+Title: New Release - 0.4.0
+Published: 4/21/2017
+Category: Release
+Author: jericho
+---
+
+## Breaking changes
+
+- [__#16__](https://github.com/cake-contrib/Cake.Email/issues/16) Attach files option not availble in cake mail addin
+- [__#17__](https://github.com/cake-contrib/Cake.Email/issues/17) Send multi-part emails 
+
+Please do not hesitate to reach out in the [Gitter Channel](https://gitter.im/cake-contrib/Lobby) if you have any issues using this addin.

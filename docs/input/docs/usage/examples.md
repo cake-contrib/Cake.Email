@@ -8,14 +8,21 @@ Task("SendEmail")
 {
     try
     {
+        var attachments = new[]
+        {
+                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
+                Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+        };
         var result = Email.Send(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
                 recipientName: "Jane Doe",
                 recipientAddress: "jane@example.com",
                 subject: "This is a test",
-                content: "<html><body>This is a test</body></html>",
-                sendAsHtml: true,
+                htmlContent: "<html><body>This is a test</body></html>",
+                textContent: "This is a test"
+                attachments: attachments,
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
@@ -52,6 +59,12 @@ Task("SendEmail")
 {
     try
     {
+        var attachments = new[]
+        {
+                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
+                Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+        };
         var result = Email.Send(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
@@ -61,8 +74,9 @@ Task("SendEmail")
                     new System.Net.Mail.MailAddress("bob@example.com", "Bob Smith")
                 },
                 subject: "This is a test",
-                content: "<html><body>This is a test</body></html>",
-                sendAsHtml: true,
+                htmlContent: "<html><body>This is a test</body></html>",
+                textContent: "This is a test"
+                attachments: attachments,
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
