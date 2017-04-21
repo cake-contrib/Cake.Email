@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
-        <title>Docs - Examples</title>
+        <title>Docs - jericho</title>
         <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -58,8 +58,8 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
-                                    <li class="active"><a href="/Cake.Email/docs">Documentation</a></li>
-        <li><a href="/Cake.Email/blog">Blog</a></li>
+                                    <li><a href="/Cake.Email/docs">Documentation</a></li>
+        <li class="active"><a href="/Cake.Email/blog">Blog</a></li>
         <li><a href="/Cake.Email/api">API</a></li>
  
                         </ul>       
@@ -74,7 +74,6 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/cake-contrib/Cake.Email/tree/develop/docs/input/docs/usage/examples.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
     <div id="infobar-headings"></div>
 
                 </section>
@@ -83,13 +82,17 @@
 
                     <ul class="sidebar-menu">
                         
-                <li class="treeview active">
-                    <a href="/Cake.Email/docs/usage">Usage</a> <a href="#" class="expand"></a>
-                    <ul class="treeview-menu">
-                                        <li class="selected"><a href="/Cake.Email/docs/usage/examples">Examples</a></li>
 
-                    </ul>
-                </li>
+    <li class="header"><i class="fa fa-bookmark"></i> Categories</li>    
+        <li><a href="/blog/release">Release</a></li>
+    
+    <li class="header"><i class="fa fa-calendar"></i> Archive</li>    
+        <li><a href="/blog/archive/2017/04">April, 2017</a></li>
+        <li><a href="/blog/archive/2017/02">February, 2017</a></li>
+    
+    <li class="header"><i class="fa fa-user"></i> Authors</li>    
+        <li><a href="/blog/author/gep13">gep13</a></li>
+        <li class="selected"><a href="/blog/author/jericho">jericho</a></li>
 
                     </ul>
                 </section>                
@@ -102,109 +105,47 @@
 
 
 	<section class="content-header">
-		<h1>Examples</h1>
+		<h1>jericho</h1>
 	</section>
 	<section class="content">
-		<html><head></head><body><p><strong>Sending an email to a single recipient:</strong></p>
-<pre><code class="language-csharp">#addin Cake.Email
+		
 
-Task("SendEmail")
-    .Does(() =&gt;
-{
-    try
-    {
-        var attachments = new[]
-        {
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
-        };
-        var result = Email.Send(
-                senderName: "Bob Smith", 
-                senderAddress: "bob&#64;example.com",
-                recipientName: "Jane Doe",
-                recipientAddress: "jane&#64;example.com",
-                subject: "This is a test",
-                htmlContent: "This is a test",
-                textContent: "This is a test"
-                attachments: attachments,
-                settings: new <a href="/Cake.Email/api/Cake.Email/EmailSettings">EmailSettings</a> 
-                {
-                    SmtpHost = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    Username = "my_gmail_address&#64;gmail.com",
-                    Password = "my_password"
-                }
-        );
+        <h2><a href="/Cake.Email/blog/new-release-0.4.0">New Release - 0.4.0</a></h2>
+<dl class="dl-horizontal">
+    <dt><i class="fa fa-calendar"></i> Published</dt>
+    <dd>21 April 2017</dd>
+        <dt><i class="fa fa-bookmark"></i> Category</dt>
+        <dd><a href="/blog/release">Release</a></dd>
+            <dt><i class="fa fa-user"></i> Author</dt>
+        <dd><a href="/blog/author/jericho">jericho</a></dd>
+</dl>            <div>
+                <p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
+                <a href="/Cake.Email/blog/new-release-0.4.0">Read more...</a>
+            </div>
+        <hr />
+        <h2><a href="/Cake.Email/blog/new-release-0.3.0">New Release - 0.3.0</a></h2>
+<dl class="dl-horizontal">
+    <dt><i class="fa fa-calendar"></i> Published</dt>
+    <dd>12 April 2017</dd>
+        <dt><i class="fa fa-bookmark"></i> Category</dt>
+        <dd><a href="/blog/release">Release</a></dd>
+            <dt><i class="fa fa-user"></i> Author</dt>
+        <dd><a href="/blog/author/jericho">jericho</a></dd>
+</dl>            <div>
+                <p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
+                <a href="/Cake.Email/blog/new-release-0.3.0">Read more...</a>
+            </div>
+        <hr />
+    <nav>
+        <ul class="pager">
+            <li class="previous">                
+            </li>
+            <li class="next">
+            </li>
+        </ul>
+    </nav>
 
-        if (result.Ok)
-        {
-            Information("Email succcessfully sent");
-        }
-        else
-        {
-            Error("Failed to send email: {0}", result.Error);
-        }
-    }
-    catch(Exception ex)
-    {
-        Error("{0}", ex);
-    }
-});
-</code></pre>
-<p><strong>Sending an email to multiple recipients:</strong></p>
-<pre><code class="language-csharp">#addin Cake.Email
 
-Task("SendEmail")
-    .Does(() =&gt;
-{
-    try
-    {
-        var attachments = new[]
-        {
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
-        };
-        var result = Email.Send(
-                senderName: "Bob Smith", 
-                senderAddress: "bob&#64;example.com",
-                recipients: new[]
-                {
-                    new System.Net.Mail.MailAddress("jane&#64;example.com", "Jane Doe"),
-                    new System.Net.Mail.MailAddress("bob&#64;example.com", "Bob Smith")
-                },
-                subject: "This is a test",
-                htmlContent: "This is a test",
-                textContent: "This is a test"
-                attachments: attachments,
-                settings: new <a href="/Cake.Email/api/Cake.Email/EmailSettings">EmailSettings</a> 
-                {
-                    SmtpHost = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    Username = "my_gmail_address&#64;gmail.com",
-                    Password = "my_password"
-                }
-        );
-
-        if (result.Ok)
-        {
-            Information("Email succcessfully sent");
-        }
-        else
-        {
-            Error("Failed to send email: {0}", result.Error);
-        }
-    }
-    catch(Exception ex)
-    {
-        Error("{0}", ex);
-    }
-});
-</code></pre>
-</body></html>
 	</section>
                 
             </div>           

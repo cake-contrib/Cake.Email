@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
-        <title>Docs - API - EmailProvider.SendEmail(string, string, IEnumerable&lt;MailAddress&gt;, string, string, bool, EmailSettings) Method</title>
+        <title>Docs - API - EmailProvider.SendEmail(string, string, IEnumerable&lt;MailAddress&gt;, string, string, string, IEnumerable&lt;AttachmentBase&gt;, EmailSettings) Method</title>
         <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -135,9 +135,11 @@
 			<li class="header">Constructors</li>
 				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/8D1242CE">EmailProvider<wbr>(ICakeContext)<wbr></a></li>
 			<li class="header">Method Members</li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/743824B8">SendEmail<wbr>(string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>bool, <wbr>EmailSettings)<wbr></a></li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/0E087899">SendEmail<wbr>(string, <wbr>string, <wbr>MailAddress, <wbr>string, <wbr>string, <wbr>bool, <wbr>EmailSettings)<wbr></a></li>
-				<li class="selected"><a href="/Cake.Email/api/Cake.Email/EmailProvider/F66C0EF0">SendEmail<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;MailAddress&gt;<wbr>, <wbr>string, <wbr>string, <wbr>bool, <wbr>EmailSettings)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/80DEB884">Create<wbr>Attachment<wbr>From<wbr>Local<wbr>File<wbr>(string, <wbr>string, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/613252A4">Create<wbr>Attachment<wbr>From<wbr>Stream<wbr>(Stream, <wbr>string, <wbr>string, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/F63929B5">SendEmail<wbr>(string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/4C8DEA41">SendEmail<wbr>(string, <wbr>string, <wbr>MailAddress, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr></a></li>
+				<li class="selected"><a href="/Cake.Email/api/Cake.Email/EmailProvider/B33A3E67">SendEmail<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;MailAddress&gt;<wbr>, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr></a></li>
 
 
                     </ul>
@@ -152,7 +154,7 @@
 
 <section class="content-header">
 			<h3><a href="/Cake.Email/api/Cake.Email/EmailProvider">EmailProvider</a>.</h3>
-	<h1>SendEmail<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;MailAddress&gt;<wbr>, <wbr>string, <wbr>string, <wbr>bool, <wbr>EmailSettings)<wbr> <small>Method</small></h1>
+	<h1>SendEmail<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;MailAddress&gt;<wbr>, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
@@ -177,7 +179,7 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable&lt;MailAddress&gt; recipients, string subject, string content, bool sendAsHtml, EmailSettings settings)</code></pre>
+	<pre><code>public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable&lt;MailAddress&gt; recipients, string subject, string htmlContent, string textContent, IEnumerable&lt;AttachmentBase&gt; attachments, EmailSettings settings)</code></pre>
 
 	<h1 id="Examples">Examples</h1>
 	<div>
@@ -186,6 +188,12 @@
     var enableSsl = true;
     var username = "... your username ...";
     var password = "... your password ...";
+    var attachments = new[]
+    {
+        Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
+        Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+        Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+    };
     try
     {
         var result = Email.Send(
@@ -197,8 +205,9 @@
                 new MailAddress("bod@example.com", "Bob Smith"),
             },
             subject: "This is a test",
-            content: "This is a test",
-            sendAsHtml: true,
+            htmlContent: "This is a test",
+            textContent: "This is the text only version of this email",
+            attachments: attachments,
             settings: new EmailSettings
             {
                 SmtpHost = smtpHost,
@@ -258,14 +267,19 @@
 						<td>The subject line of the email</td>
 					</tr>
 					<tr>
-						<td>content</td>
+						<td>htmlContent</td>
 						<td>string</td>
-						<td>The body of the email</td>
+						<td>The HTML content of the email</td>
 					</tr>
 					<tr>
-						<td>sendAsHtml</td>
-						<td>bool</td>
-						<td>Indicates if the content should be sent as HTML</td>
+						<td>textContent</td>
+						<td>string</td>
+						<td>The text content of the email</td>
+					</tr>
+					<tr>
+						<td>attachments</td>
+						<td>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr></td>
+						<td>Attachments to send with the email</td>
 					</tr>
 					<tr>
 						<td>settings</td>
