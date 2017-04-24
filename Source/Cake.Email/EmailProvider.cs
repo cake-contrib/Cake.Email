@@ -344,7 +344,7 @@ namespace Cake.Email
             }
             else
             {
-                var linkedResource = new LinkedResource(filePath);
+                var linkedResource = new LinkedResource(filePath, mimeType);
                 linkedResource.ContentId = contentId;
                 linkedResource.ContentType.Name = Path.GetFileName(filePath);
                 linkedResource.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
@@ -369,13 +369,11 @@ namespace Cake.Email
 
             if (string.IsNullOrEmpty(contentId))
             {
-                var attachment = new Attachment(contentStream, mimeType);
-                attachment.Name = Path.GetFileName(fileName);
-                return attachment;
+                return new Attachment(contentStream, Path.GetFileName(fileName), mimeType);
             }
             else
             {
-                var linkedResource = new LinkedResource(contentStream);
+                var linkedResource = new LinkedResource(contentStream, mimeType);
                 linkedResource.ContentId = contentId;
                 linkedResource.ContentType.Name = Path.GetFileName(fileName);
                 linkedResource.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
