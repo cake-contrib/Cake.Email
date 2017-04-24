@@ -29,7 +29,7 @@ namespace Cake.Email
         }
 
         /// <summary>
-        /// Sends an email via the SendGrid API, based on the provided settings
+        /// Sends an email via SMTP, based on the provided settings
         /// </summary>
         /// <param name="senderName">The name of the person sending the email</param>
         /// <param name="senderAddress">The email address of the person sending the email</param>
@@ -56,7 +56,7 @@ namespace Cake.Email
         /// };
         /// try
         /// {
-        ///     var result = Email.Send(
+        ///     var result = Email.SendEmail(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
         ///         recipientName: "Jane Doe",
@@ -96,7 +96,7 @@ namespace Cake.Email
         }
 
         /// <summary>
-        /// Sends an email via the SendGrid API, based on the provided settings
+        /// Sends an email via SMTP, based on the provided settings
         /// </summary>
         /// <param name="senderName">The name of the person sending the email</param>
         /// <param name="senderAddress">The email address of the person sending the email</param>
@@ -122,7 +122,7 @@ namespace Cake.Email
         /// };
         /// try
         /// {
-        ///     var result = Email.Send(
+        ///     var result = Email.SendEmail(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
         ///         recipient: new MailAddress("jane@example.com", "Jane Doe"),
@@ -161,7 +161,7 @@ namespace Cake.Email
         }
 
         /// <summary>
-        /// Sends an email via the SendGrid API, based on the provided settings
+        /// Sends an email via SMTP, based on the provided settings
         /// </summary>
         /// <param name="senderName">The name of the person sending the email</param>
         /// <param name="senderAddress">The email address of the person sending the email</param>
@@ -187,7 +187,7 @@ namespace Cake.Email
         /// };
         /// try
         /// {
-        ///     var result = Email.Send(
+        ///     var result = Email.SendEmail(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
         ///         recipients: new[]
@@ -344,7 +344,7 @@ namespace Cake.Email
             }
             else
             {
-                var linkedResource = new LinkedResource(filePath);
+                var linkedResource = new LinkedResource(filePath, mimeType);
                 linkedResource.ContentId = contentId;
                 linkedResource.ContentType.Name = Path.GetFileName(filePath);
                 linkedResource.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
@@ -369,13 +369,11 @@ namespace Cake.Email
 
             if (string.IsNullOrEmpty(contentId))
             {
-                var attachment = new Attachment(contentStream, mimeType);
-                attachment.Name = Path.GetFileName(fileName);
-                return attachment;
+                return new Attachment(contentStream, Path.GetFileName(fileName), mimeType);
             }
             else
             {
-                var linkedResource = new LinkedResource(contentStream);
+                var linkedResource = new LinkedResource(contentStream, mimeType);
                 linkedResource.ContentId = contentId;
                 linkedResource.ContentType.Name = Path.GetFileName(fileName);
                 linkedResource.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
