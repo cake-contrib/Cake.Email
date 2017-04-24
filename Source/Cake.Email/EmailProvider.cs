@@ -56,7 +56,7 @@ namespace Cake.Email
         /// };
         /// try
         /// {
-        ///     var result = Email.Send(
+        ///     var result = Email.SendEmail(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
         ///         recipientName: "Jane Doe",
@@ -122,7 +122,7 @@ namespace Cake.Email
         /// };
         /// try
         /// {
-        ///     var result = Email.Send(
+        ///     var result = Email.SendEmail(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
         ///         recipient: new MailAddress("jane@example.com", "Jane Doe"),
@@ -187,7 +187,7 @@ namespace Cake.Email
         /// };
         /// try
         /// {
-        ///     var result = Email.Send(
+        ///     var result = Email.SendEmail(
         ///         senderName: "Bob Smith",
         ///         senderAddress: "bob@example.com",
         ///         recipients: new[]
