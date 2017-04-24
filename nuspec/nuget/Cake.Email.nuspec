@@ -17,5 +17,6 @@
     <file src="Cake.Email.dll" target="lib\net45" />
     <file src="Cake.Email.pdb" target="lib\net45" />
     <file src="Cake.Email.xml" target="lib\net45" />
+    <file src="MimeTypesMap.dll" target="lib\net45" />
   </files>
 </package>
