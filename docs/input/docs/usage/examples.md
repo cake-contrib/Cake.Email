@@ -14,7 +14,7 @@ Task("SendEmail")
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
         };
-        var result = Email.Send(
+        var result = Email.SendEmail(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
                 recipientName: "Jane Doe",
@@ -65,7 +65,7 @@ Task("SendEmail")
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
         };
-        var result = Email.Send(
+        var result = Email.SendEmail(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
                 recipients: new[]
