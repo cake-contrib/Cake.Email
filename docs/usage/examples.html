@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
-        <title>Docs - Examples</title>
+        <title>Cake.Email - Examples</title>
         <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
             <header class="main-header">   
                      
                 <a href="/Cake.Email/" class="logo">
-                            <span>Docs</span>
+                            <span>Cake.Email</span>
                 </a>   
                          
                 <nav class="navbar navbar-static-top" role="navigation">
@@ -119,7 +119,7 @@ Task("SendEmail")
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
         };
-        var result = Email.Send(
+        var result = Email.SendEmail(
                 senderName: "Bob Smith", 
                 senderAddress: "bob&#64;example.com",
                 recipientName: "Jane Doe",
@@ -167,7 +167,7 @@ Task("SendEmail")
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
         };
-        var result = Email.Send(
+        var result = Email.SendEmail(
                 senderName: "Bob Smith", 
                 senderAddress: "bob&#64;example.com",
                 recipients: new[]
