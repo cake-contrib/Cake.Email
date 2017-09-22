@@ -2,7 +2,7 @@
 
 Environment.SetVariableNames();
 
-BuildParameters.SetParameters(context: Context, 
+BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./Source",
                             title: "Cake.Email",
@@ -13,10 +13,12 @@ BuildParameters.SetParameters(context: Context,
 BuildParameters.PrintParameters(Context);
 
 ToolSettings.SetToolSettings(context: Context,
-                            dupFinderExcludePattern: new string[] { 
-                                BuildParameters.RootDirectoryPath + "/Source/Cake.Email.Tests/*.cs" },
+                            dupFinderExcludePattern: new string[] {
+                                BuildParameters.RootDirectoryPath + "/Source/Cake.Email.Tests/**/*.cs",
+                                BuildParameters.RootDirectoryPath + "/Source/Cake.Email/**/*.AssemblyInfo.cs"
+                            },
                             testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
-Build.Run();
+Build.RunDotNetCore();

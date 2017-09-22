@@ -1,7 +1,7 @@
 __Sending an email to a single recipient:__
 
 ```csharp
-#addin Cake.Email
+#addin nuget:?package=Cake.Email&loaddependencies=true
 
 Task("SendEmail")
     .Does(() =>
@@ -52,7 +52,7 @@ Task("SendEmail")
 __Sending an email to multiple recipients:__
 
 ```csharp
-#addin Cake.Email
+#addin nuget:?package=Cake.Email&loaddependencies=true
 
 Task("SendEmail")
     .Does(() =>
@@ -70,8 +70,8 @@ Task("SendEmail")
                 senderAddress: "bob@example.com",
                 recipients: new[]
                 {
-                    new System.Net.Mail.MailAddress("jane@example.com", "Jane Doe"),
-                    new System.Net.Mail.MailAddress("bob@example.com", "Bob Smith")
+                    new Cake.Email.MailAddress("jane@example.com", "Jane Doe"),
+                    new Cake.Email.MailAddress("bob@example.com", "Bob Smith")
                 },
                 subject: "This is a test",
                 htmlContent: "<html><body>This is a test</body></html>",

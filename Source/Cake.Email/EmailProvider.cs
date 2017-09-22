@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
 using Cake.Core;
 using Cake.Core.Annotations;
 using HeyRed.Mime;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 namespace Cake.Email
 {
@@ -237,59 +236,74 @@ namespace Cake.Email
                     attachments = Enumerable.Empty<AttachmentBase>();
                 }
 
-                using (var client = new SmtpClient
+                using (var client = new SmtpClient())
                 {
-                    Host = settings.SmtpHost,
-                    Port = settings.Port,
-                    EnableSsl = settings.EnableSsl,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = string.IsNullOrEmpty(settings.Username),
-                    Credentials = string.IsNullOrEmpty(settings.Username) ? null : new NetworkCredential(settings.Username, settings.Password)
-                })
-                {
-                    var from = new MailAddress(senderAddress, senderName);
+                    client.Connect(settings.SmtpHost, settings.Port, settings.EnableSsl);
 
-                    using (var message = new MailMessage())
+                    if (!string.IsNullOrEmpty(settings.Username))
                     {
-                        message.From = from;
-                        message.Subject = subject;
-                        message.SubjectEncoding = Encoding.UTF8;
-
-                        foreach (var recipient in recipients.Where(r => r != null))
-                        {
-                            message.To.Add(recipient);
-                        }
-
-                        foreach (var attachment in attachments.OfType<Attachment>())
-                        {
-                            message.Attachments.Add(attachment);
-                        }
-
-                        /*
-                            IMPORTANT: the order of body parts is significant.
-                            Parts in a multipart MIME message should be in order of increasing preference
-                            See: https://www.ietf.org/rfc/rfc1521.txt (section 7.2.3)
-                        */
-
-                        if (!string.IsNullOrEmpty(textContent))
-                        {
-                            var textView = AlternateView.CreateAlternateViewFromString(textContent, Encoding.UTF8, "text/plain");
-                            message.AlternateViews.Add(textView);
-                        }
-
-                        if (!string.IsNullOrEmpty(htmlContent))
-                        {
-                            var htmlView = AlternateView.CreateAlternateViewFromString(htmlContent, Encoding.UTF8, "text/html");
-                            foreach (var item in attachments.OfType<LinkedResource>())
-                            {
-                                htmlView.LinkedResources.Add(item);
-                            }
-
-                            message.AlternateViews.Add(htmlView);
-                        }
-
-                        client.Send(message);
+                        client.Authenticate(settings.Username, settings.Password);
                     }
+
+                    var from = new MailboxAddress(senderName, senderAddress);
+
+                    var message = new MimeMessage();
+                    message.From.Add(from);
+                    message.Subject = subject;
+
+                    foreach (var recipient in recipients.Where(r => r != null))
+                    {
+                        message.To.Add(new MailboxAddress(recipient.Name, recipient.Address));
+                    }
+
+                    /*
+                       IMPORTANT: the order of body parts is significant.
+                       Parts in a multipart MIME message should be in order of increasing preference
+                       See: https://www.ietf.org/rfc/rfc1521.txt (section 7.2.3)
+                   */
+                    var content = new MultipartAlternative();
+
+                    if (!string.IsNullOrEmpty(textContent))
+                    {
+                        content.Add(new TextPart("plain") { Text = textContent });
+                    }
+
+                    if (!string.IsNullOrEmpty(htmlContent))
+                    {
+                        content.Add(new TextPart("html") { Text = htmlContent });
+                    }
+
+                    var multipart = new Multipart("mixed");
+                    multipart.Add(content);
+
+                    foreach (var linkedResource in attachments.OfType<LinkedResource>())
+                    {
+                        multipart.Add(new MimePart(linkedResource.MimeType)
+                        {
+                            ContentId = linkedResource.ContentId,
+                            ContentObject = new ContentObject(linkedResource.ContentStream, ContentEncoding.Default),
+                            ContentDisposition = new ContentDisposition(ContentDisposition.Inline),
+                            ContentTransferEncoding = ContentEncoding.Base64,
+                            FileName = linkedResource.Name
+                        });
+                    }
+
+                    foreach (var linkedResource in attachments.OfType<Attachment>())
+                    {
+                        multipart.Add(new MimePart(linkedResource.MimeType)
+                        {
+                            ContentObject = new ContentObject(linkedResource.ContentStream, ContentEncoding.Default),
+                            ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                            ContentTransferEncoding = ContentEncoding.Base64,
+                            FileName = linkedResource.Name
+                        });
+                    }
+
+                    message.Body = multipart;
+
+                    client.Send(message);
+
+                    client.Disconnect(true);
                 }
 
                 return new EmailResult(true, DateTime.UtcNow.ToString("u"), string.Empty);
@@ -335,20 +349,11 @@ namespace Cake.Email
 
             if (string.IsNullOrEmpty(contentId))
             {
-                var attachment = new Attachment(filePath, mimeType);
-                attachment.Name = Path.GetFileName(filePath);
-                attachment.ContentDisposition.CreationDate = fileInfo.CreationTime;
-                attachment.ContentDisposition.ModificationDate = fileInfo.LastWriteTime;
-                attachment.ContentDisposition.ReadDate = fileInfo.LastAccessTime;
-                return attachment;
+                return new Attachment(filePath, mimeType);
             }
             else
             {
-                var linkedResource = new LinkedResource(filePath, mimeType);
-                linkedResource.ContentId = contentId;
-                linkedResource.ContentType.Name = Path.GetFileName(filePath);
-                linkedResource.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
-                return linkedResource;
+                return new LinkedResource(filePath, mimeType, contentId);
             }
         }
 
@@ -369,15 +374,11 @@ namespace Cake.Email
 
             if (string.IsNullOrEmpty(contentId))
             {
-                return new Attachment(contentStream, Path.GetFileName(fileName), mimeType);
+                return new Attachment(contentStream, mimeType, fileName);
             }
             else
             {
-                var linkedResource = new LinkedResource(contentStream, mimeType);
-                linkedResource.ContentId = contentId;
-                linkedResource.ContentType.Name = Path.GetFileName(fileName);
-                linkedResource.TransferEncoding = System.Net.Mime.TransferEncoding.Base64;
-                return linkedResource;
+                return new LinkedResource(contentStream, fileName, mimeType, contentId);
             }
         }
     }
