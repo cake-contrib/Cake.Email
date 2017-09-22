@@ -26,7 +26,7 @@ Task("SendEmail")
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
-                    Port = 587,
+                    Port = 465,
                     EnableSsl = true,
                     Username = "my_gmail_address@gmail.com",
                     Password = "my_password"
@@ -80,7 +80,7 @@ Task("SendEmail")
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
-                    Port = 587,
+                    Port = 465,
                     EnableSsl = true,
                     Username = "my_gmail_address@gmail.com",
                     Password = "my_password"
