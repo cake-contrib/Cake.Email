@@ -1,8 +1,10 @@
+image: Visual Studio 2017
+
 #---------------------------------#
 #  Build Script                   #
 #---------------------------------#
 build_script:
-  - ps: .\build.ps1 -Target AppVeyor
+  - ps: .\build.ps1 -Target AppVeyor --settings_skipverification=true
 
 # Tests
 test: off
@@ -22,5 +24,4 @@ branches:
 #  Build Cache                    #
 #---------------------------------#
 cache:
-- Source\packages -> Source\**\packages.config
 - tools -> setup.cake

@@ -1,7 +1,7 @@
 __Sending an email to a single recipient:__
 
 ```csharp
-#addin Cake.Email
+#addin nuget:?package=Cake.Email&loaddependencies=true
 
 Task("SendEmail")
     .Does(() =>
@@ -14,7 +14,7 @@ Task("SendEmail")
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
         };
-        var result = Email.Send(
+        var result = Email.SendEmail(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
                 recipientName: "Jane Doe",
@@ -26,7 +26,7 @@ Task("SendEmail")
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
-                    Port = 587,
+                    Port = 465,
                     EnableSsl = true,
                     Username = "my_gmail_address@gmail.com",
                     Password = "my_password"
@@ -52,7 +52,7 @@ Task("SendEmail")
 __Sending an email to multiple recipients:__
 
 ```csharp
-#addin Cake.Email
+#addin nuget:?package=Cake.Email&loaddependencies=true
 
 Task("SendEmail")
     .Does(() =>
@@ -65,13 +65,13 @@ Task("SendEmail")
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
                 Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
         };
-        var result = Email.Send(
+        var result = Email.SendEmail(
                 senderName: "Bob Smith", 
                 senderAddress: "bob@example.com",
                 recipients: new[]
                 {
-                    new System.Net.Mail.MailAddress("jane@example.com", "Jane Doe"),
-                    new System.Net.Mail.MailAddress("bob@example.com", "Bob Smith")
+                    new Cake.Email.MailAddress("jane@example.com", "Jane Doe"),
+                    new Cake.Email.MailAddress("bob@example.com", "Bob Smith")
                 },
                 subject: "This is a test",
                 htmlContent: "<html><body>This is a test</body></html>",
@@ -80,7 +80,7 @@ Task("SendEmail")
                 settings: new EmailSettings 
                 {
                     SmtpHost = "smtp.gmail.com",
-                    Port = 587,
+                    Port = 465,
                     EnableSsl = true,
                     Username = "my_gmail_address@gmail.com",
                     Password = "my_password"
