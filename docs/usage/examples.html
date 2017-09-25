@@ -106,7 +106,7 @@
 	</section>
 	<section class="content">
 		<html><head></head><body><p><strong>Sending an email to a single recipient:</strong></p>
-<pre><code class="language-csharp">#addin Cake.Email
+<pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;loaddependencies=true
 
 Task("SendEmail")
     .Does(() =&gt;
@@ -131,7 +131,7 @@ Task("SendEmail")
                 settings: new <a href="/Cake.Email/api/Cake.Email/EmailSettings">EmailSettings</a> 
                 {
                     SmtpHost = "smtp.gmail.com",
-                    Port = 587,
+                    Port = 465,
                     EnableSsl = true,
                     Username = "my_gmail_address&#64;gmail.com",
                     Password = "my_password"
@@ -154,7 +154,7 @@ Task("SendEmail")
 });
 </code></pre>
 <p><strong>Sending an email to multiple recipients:</strong></p>
-<pre><code class="language-csharp">#addin Cake.Email
+<pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;loaddependencies=true
 
 Task("SendEmail")
     .Does(() =&gt;
@@ -172,8 +172,8 @@ Task("SendEmail")
                 senderAddress: "bob&#64;example.com",
                 recipients: new[]
                 {
-                    new System.Net.Mail.MailAddress("jane&#64;example.com", "Jane Doe"),
-                    new System.Net.Mail.MailAddress("bob&#64;example.com", "Bob Smith")
+                    new Cake.Email.MailAddress("jane&#64;example.com", "Jane Doe"),
+                    new Cake.Email.MailAddress("bob&#64;example.com", "Bob Smith")
                 },
                 subject: "This is a test",
                 htmlContent: "This is a test",
@@ -182,7 +182,7 @@ Task("SendEmail")
                 settings: new <a href="/Cake.Email/api/Cake.Email/EmailSettings">EmailSettings</a> 
                 {
                     SmtpHost = "smtp.gmail.com",
-                    Port = 587,
+                    Port = 465,
                     EnableSsl = true,
                     Username = "my_gmail_address&#64;gmail.com",
                     Password = "my_password"

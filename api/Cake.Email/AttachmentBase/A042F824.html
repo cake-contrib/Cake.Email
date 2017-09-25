@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Email - API - EmailProvider.SendEmail(string, string, IEnumerable&lt;MailAddress&gt;, string, string, string, IEnumerable&lt;AttachmentBase&gt;, EmailSettings) Method</title>
+        <title>Cake.Email - API - AttachmentBase.Dispose(bool) Method</title>
         <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -74,7 +74,6 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Examples">Examples</a></p>
 <p><a href="#Parameters">Parameters</a></p>
 <p><a href="#ReturnValue">Return Value</a></p>
 <hr class="infobar-hidden">
@@ -130,16 +129,17 @@
 			<li class="header">Namespace</li>
 		<li><a href="/Cake.Email/api/Cake.Email">Cake<wbr>.Email</a></li>
 		<li class="header">Type</li>
-		<li><a href="/Cake.Email/api/Cake.Email/EmailProvider">EmailProvider</a></li>
+		<li><a href="/Cake.Email/api/Cake.Email/AttachmentBase">AttachmentBase</a></li>
 		<li role="separator" class="divider"></li>
 			<li class="header">Constructors</li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/8D1242CE">EmailProvider<wbr>(ICakeContext)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/AttachmentBase/D207498B">AttachmentBase<wbr>(string, <wbr>string)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/AttachmentBase/B1FEA05F">AttachmentBase<wbr>(Stream, <wbr>string)<wbr></a></li>
+			<li class="header">Property Members</li>
+				<li><a href="/Cake.Email/api/Cake.Email/AttachmentBase/207FDE91">ContentStream</a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/AttachmentBase/9F826D6F">MimeType</a></li>
 			<li class="header">Method Members</li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/80DEB884">Create<wbr>Attachment<wbr>From<wbr>Local<wbr>File<wbr>(string, <wbr>string, <wbr>string)<wbr></a></li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/613252A4">Create<wbr>Attachment<wbr>From<wbr>Stream<wbr>(Stream, <wbr>string, <wbr>string, <wbr>string)<wbr></a></li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/F63929B5">SendEmail<wbr>(string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr></a></li>
-				<li><a href="/Cake.Email/api/Cake.Email/EmailProvider/4C8DEA41">SendEmail<wbr>(string, <wbr>string, <wbr>MailAddress, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr></a></li>
-				<li class="selected"><a href="/Cake.Email/api/Cake.Email/EmailProvider/B33A3E67">SendEmail<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;MailAddress&gt;<wbr>, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr></a></li>
+				<li><a href="/Cake.Email/api/Cake.Email/AttachmentBase/3C62A782">Dispose<wbr>()<wbr></a></li>
+				<li class="selected"><a href="/Cake.Email/api/Cake.Email/AttachmentBase/A042F824">Dispose<wbr>(bool)<wbr></a></li>
 
 
                     </ul>
@@ -153,15 +153,16 @@
 
 
 <section class="content-header">
-			<h3><a href="/Cake.Email/api/Cake.Email/EmailProvider">EmailProvider</a>.</h3>
-	<h1>SendEmail<wbr>(string, <wbr>string, <wbr>IEnumerable<wbr>&lt;MailAddress&gt;<wbr>, <wbr>string, <wbr>string, <wbr>string, <wbr>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr>, <wbr>EmailSettings)<wbr> <small>Method</small></h1>
+			<h3><a href="/Cake.Email/api/Cake.Email/AttachmentBase">AttachmentBase</a>.</h3>
+	<h1>Dispose<wbr>(bool)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Sends an email via SMTP, based on the provided settings
+    Releases the unmanaged resources used by the System.Net.Mail.AttachmentBase and
+    optionally releases the managed resources.
     </div>
 
 		<div class="panel panel-default">
@@ -172,65 +173,15 @@
 						<dd><a href="/Cake.Email/api/Cake.Email">Cake<wbr>.Email</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/Cake.Email/api/Cake.Email/EmailProvider">EmailProvider</a></dd>		
+						<dd><a href="/Cake.Email/api/Cake.Email/AttachmentBase">AttachmentBase</a></dd>		
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable&lt;MailAddress&gt; recipients, string subject, string htmlContent, string textContent, IEnumerable&lt;AttachmentBase&gt; attachments, EmailSettings settings)</code></pre>
+	<pre><code>protected virtual void Dispose(bool disposing)</code></pre>
 
-	<h1 id="Examples">Examples</h1>
-	<div>
-    <pre><code class="cs">var smtpHost = "... your smtp host ...";
-var port = 1234;
-var enableSsl = true;
-var username = "... your username ...";
-var password = "... your password ...";
-var attachments = new[]
-{
-    Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-    Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-    Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
-};
-try
-{
-    var result = Email.SendEmail(
-        senderName: "Bob Smith",
-        senderAddress: "bob@example.com",
-        recipients: new[]
-        {
-            new MailAddress("jane@example.com", "Jane Doe"),
-            new MailAddress("bod@example.com", "Bob Smith"),
-        },
-        subject: "This is a test",
-        htmlContent: "This is a test",
-        textContent: "This is the text only version of this email",
-        attachments: attachments,
-        settings: new EmailSettings
-        {
-            SmtpHost = smtpHost,
-            Port = port,
-            EnableSsl = enableSsl,
-            Username = username,
-            Password = password
-        }
-    );
-    if (result.Ok)
-    {
-        Information("Email succcessfully sent");
-    }
-    else
-    {
-        Error("Failed to send email: {0}", result.Error);
-    }
-}
-catch(Exception ex)
-{
-    Error("{0}", ex);
-}</code></pre>
-    </div>
 
 
 
@@ -247,44 +198,9 @@ catch(Exception ex)
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>senderName</td>
-						<td>string</td>
-						<td>The name of the person sending the email</td>
-					</tr>
-					<tr>
-						<td>senderAddress</td>
-						<td>string</td>
-						<td>The email address of the person sending the email</td>
-					</tr>
-					<tr>
-						<td>recipients</td>
-						<td>IEnumerable<wbr>&lt;MailAddress&gt;<wbr></td>
-						<td>An enumeration of recipients who will receive the email</td>
-					</tr>
-					<tr>
-						<td>subject</td>
-						<td>string</td>
-						<td>The subject line of the email</td>
-					</tr>
-					<tr>
-						<td>htmlContent</td>
-						<td>string</td>
-						<td>The HTML content of the email</td>
-					</tr>
-					<tr>
-						<td>textContent</td>
-						<td>string</td>
-						<td>The text content of the email</td>
-					</tr>
-					<tr>
-						<td>attachments</td>
-						<td>IEnumerable<wbr>&lt;<wbr>Attachment<wbr>Base&gt;<wbr></td>
-						<td>Attachments to send with the email</td>
-					</tr>
-					<tr>
-						<td>settings</td>
-						<td><a href="/Cake.Email/api/Cake.Email/EmailSettings">EmailSettings</a></td>
-						<td>The settings to be used when sending the email</td>
+						<td>disposing</td>
+						<td>bool</td>
+						<td>true to release both managed and unmanaged resources; false to release only unmanaged resources.</td>
 					</tr>
 			</tbody></table>
 		</div>
@@ -301,8 +217,8 @@ catch(Exception ex)
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td><a href="/Cake.Email/api/Cake.Email/EmailResult">EmailResult</a></td>
-					<td>An instance of <code class="cs"><a href="/Cake.Email/api/Cake.Email/EmailResult">EmailResult</a></code> indicating success/failure</td>
+					<td>void</td>
+					<td></td>
 				</tr>
 			</tbody></table>
 		</div>

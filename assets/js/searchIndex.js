@@ -34,6 +34,14 @@ var searchModule = function() {
 
     a({
         id:0,
+        title:"Attachment",
+        content:"Attachment",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:1,
         title:"EmailAliases",
         content:"EmailAliases",
         description:'',
@@ -41,17 +49,9 @@ var searchModule = function() {
     });
 
     a({
-        id:1,
-        title:"EmailSettings",
-        content:"EmailSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
         id:2,
-        title:"EmailResult",
-        content:"EmailResult",
+        title:"MailAddress",
+        content:"MailAddress",
         description:'',
         tags:''
     });
@@ -64,6 +64,44 @@ var searchModule = function() {
         tags:''
     });
 
+    a({
+        id:4,
+        title:"EmailResult",
+        content:"EmailResult",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:5,
+        title:"EmailSettings",
+        content:"EmailSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:6,
+        title:"AttachmentBase",
+        content:"AttachmentBase",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:7,
+        title:"LinkedResource",
+        content:"LinkedResource",
+        description:'',
+        tags:''
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/Attachment',
+        title:"Attachment",
+        description:""
+    });
+
     y({
         url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailAliases',
         title:"EmailAliases",
@@ -71,8 +109,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
-        title:"EmailSettings",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/MailAddress',
+        title:"MailAddress",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
+        title:"EmailProvider",
         description:""
     });
 
@@ -83,8 +127,20 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
-        title:"EmailProvider",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
+        title:"EmailSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/AttachmentBase',
+        title:"AttachmentBase",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/LinkedResource',
+        title:"LinkedResource",
         description:""
     });
 
