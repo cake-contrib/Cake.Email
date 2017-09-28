@@ -34,30 +34,6 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"Attachment",
-        content:"Attachment",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"EmailAliases",
-        content:"EmailAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"MailAddress",
-        content:"MailAddress",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
         title:"EmailProvider",
         content:"EmailProvider",
         description:'',
@@ -65,9 +41,33 @@ var searchModule = function() {
     });
 
     a({
-        id:4,
+        id:1,
+        title:"Attachment",
+        content:"Attachment",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:2,
+        title:"LinkedResource",
+        content:"LinkedResource",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:3,
         title:"EmailResult",
         content:"EmailResult",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:4,
+        title:"AttachmentBase",
+        content:"AttachmentBase",
         description:'',
         tags:''
     });
@@ -82,18 +82,24 @@ var searchModule = function() {
 
     a({
         id:6,
-        title:"AttachmentBase",
-        content:"AttachmentBase",
+        title:"MailAddress",
+        content:"MailAddress",
         description:'',
         tags:''
     });
 
     a({
         id:7,
-        title:"LinkedResource",
-        content:"LinkedResource",
+        title:"EmailAliases",
+        content:"EmailAliases",
         description:'',
         tags:''
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
+        title:"EmailProvider",
+        description:""
     });
 
     y({
@@ -103,20 +109,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailAliases',
-        title:"EmailAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/MailAddress',
-        title:"MailAddress",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
-        title:"EmailProvider",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/LinkedResource',
+        title:"LinkedResource",
         description:""
     });
 
@@ -127,20 +121,26 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
-        title:"EmailSettings",
-        description:""
-    });
-
-    y({
         url:'/Cake.Email/Cake.Email/api/Cake.Email/AttachmentBase',
         title:"AttachmentBase",
         description:""
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/LinkedResource',
-        title:"LinkedResource",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
+        title:"EmailSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/MailAddress',
+        title:"MailAddress",
+        description:""
+    });
+
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailAliases',
+        title:"EmailAliases",
         description:""
     });
 
