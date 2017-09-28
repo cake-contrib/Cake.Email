@@ -26,13 +26,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.22.2" />
-    <PackageReference Include="Cake.Common" Version="0.22.2" />
+    <PackageReference Include="Cake.Core" Version="0.22.2" PrivateAssets="All" />
+    <PackageReference Include="Cake.Common" Version="0.22.2" PrivateAssets="All" />
     <PackageReference Include="MailKit" Version="1.18.1.1" />
     <PackageReference Include="MimeTypesMap" Version="1.0.2" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
