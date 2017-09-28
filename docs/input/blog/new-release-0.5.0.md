@@ -1,6 +1,6 @@
 ---
 Title: New Release - 0.5.0
-Published: 9/22/2017
+Published: 23/9/2017
 Category: Release
 Author: jericho
 ---
@@ -11,7 +11,8 @@ Author: jericho
 
 ## New features
 
-- [__#24__](https://github.com/cake-contrib/Cake.Email/issues/24) Multi-target net46 and netstandard1.6; support Cake 0.22.2
+- [__#26__](https://github.com/cake-contrib/Cake.Email/issues/26) Support Cake 0.22.2
+- [__#24__](https://github.com/cake-contrib/Cake.Email/issues/24) Multi-target net46 and netstandard1.6
 
 ## Breaking changes
 
