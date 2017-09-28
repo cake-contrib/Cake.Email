@@ -8,6 +8,7 @@ BuildParameters.SetParameters(context: Context,
                             title: "Cake.Email",
                             repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.Email",
+                            shouldRunDotNetCorePack: true,
                             appVeyorAccountName: "cakecontrib");
 
 BuildParameters.PrintParameters(Context);
