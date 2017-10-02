@@ -34,30 +34,6 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"EmailProvider",
-        content:"EmailProvider",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"Attachment",
-        content:"Attachment",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"LinkedResource",
-        content:"LinkedResource",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
         title:"EmailResult",
         content:"EmailResult",
         description:'',
@@ -65,15 +41,15 @@ var searchModule = function() {
     });
 
     a({
-        id:4,
-        title:"AttachmentBase",
-        content:"AttachmentBase",
+        id:1,
+        title:"EmailProvider",
+        content:"EmailProvider",
         description:'',
         tags:''
     });
 
     a({
-        id:5,
+        id:2,
         title:"EmailSettings",
         content:"EmailSettings",
         description:'',
@@ -81,37 +57,11 @@ var searchModule = function() {
     });
 
     a({
-        id:6,
-        title:"MailAddress",
-        content:"MailAddress",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:7,
+        id:3,
         title:"EmailAliases",
         content:"EmailAliases",
         description:'',
         tags:''
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
-        title:"EmailProvider",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/Attachment',
-        title:"Attachment",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/LinkedResource',
-        title:"LinkedResource",
-        description:""
     });
 
     y({
@@ -121,20 +71,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/AttachmentBase',
-        title:"AttachmentBase",
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailProvider',
+        title:"EmailProvider",
         description:""
     });
 
     y({
         url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
         title:"EmailSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/MailAddress',
-        title:"MailAddress",
         description:""
     });
 

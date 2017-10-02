@@ -1,20 +1,22 @@
-﻿<!DOCTYPE html><html><head>
+﻿<!DOCTYPE html>
+<html>
+    <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-        <meta name="description">
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="description" />
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.Email - API - MailAddress.Address Property</title>
+        <title>Cake.Email - New Release - 0.5.4</title>
         <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
-        <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
-        <link href="/Cake.Email/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
-        <link href="/Cake.Email/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
+        <link href="/Cake.Email/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
+        <link href="/Cake.Email/assets/css/theme/theme.css" rel="stylesheet" />
         <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
         <link href="/Cake.Email/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/Cake.Email/assets/css/override.css" rel="stylesheet">
+        <link href="/Cake.Email/assets/css/override.css" rel="stylesheet" />
         <script src="/Cake.Email/assets/js/jquery-2.2.3.min.js"></script>
         <script src="/Cake.Email/assets/js/bootstrap.min.js"></script>        
         <script src="/Cake.Email/assets/js/app.min.js"></script>         
@@ -57,8 +59,8 @@
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.Email/docs">Documentation</a></li>
-        <li><a href="/Cake.Email/blog">Blog</a></li>
-        <li class="active"><a href="/Cake.Email/api">API</a></li>
+        <li class="active"><a href="/Cake.Email/blog">Blog</a></li>
+        <li><a href="/Cake.Email/api">API</a></li>
  
                         </ul>       
                     </div>
@@ -72,71 +74,28 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#Syntax">Syntax</a></p>
-<p><a href="#Value">Value</a></p>
-<hr class="infobar-hidden">
-</div>
+        <div><p><a href="https://github.com/cake-contrib/Cake.Email/tree/develop/docs/input/blog/new-release-0.5.4.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+    <div id="infobar-headings"></div>
 
                 </section>
                 <section class="sidebar">                    
-                    	
-	    <script src="/Cake.Email/assets/js/lunr.min.js"></script>
-    <script src="/Cake.Email/assets/js/searchIndex.js"></script>
-    <div class="sidebar-form">
-        <div class="input-group">
-            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
-            <span class="input-group-btn">
-                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
-            </span>
-        </div>
-    </div>
-    <div id="search-results">
-    </div>
-    <script>
-        function runSearch(query){
-            $("#search-results").empty();			
-            if( query.length < 2 ){
-                return;
-            }			
-            var results = searchModule.search("*" + query + "*");
-            var listHtml = "<ul class='sidebar-menu'>";	
-            listHtml += "<li class='header'>Type Results</li>";	
-            if(results.length == 0 ){
-                listHtml += "<li>No results found</li>";
-            } else {					
-                for(var i = 0; i < results.length; ++i){
-                    var res = results[i];
-                    listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a></li>";
-                }				
-            }
-            listHtml += "</ul>";				
-            $("#search-results").append(listHtml);
-        }
-
-        $(document).ready(function(){
-            $("#search").on('input propertychange paste', function() {
-                runSearch($("#search").val());
-            });
-        });
-    </script>
-	
-    <hr>
+                    
 
                     <ul class="sidebar-menu">
                         
-			<li class="header">Namespace</li>
-		<li><a href="/Cake.Email/api/Cake.Email">Cake<wbr>.Email</a></li>
-		<li class="header">Type</li>
-		<li><a href="/Cake.Email/api/Cake.Email/MailAddress">MailAddress</a></li>
-		<li role="separator" class="divider"></li>
-			<li class="header">Constructors</li>
-				<li><a href="/Cake.Email/api/Cake.Email/MailAddress/BFE07AA2">MailAddress<wbr>(string)<wbr></a></li>
-				<li><a href="/Cake.Email/api/Cake.Email/MailAddress/B84A3735">MailAddress<wbr>(string, <wbr>string)<wbr></a></li>
-			<li class="header">Property Members</li>
-				<li class="selected"><a href="/Cake.Email/api/Cake.Email/MailAddress/871A99B5">Address</a></li>
-				<li><a href="/Cake.Email/api/Cake.Email/MailAddress/99BA68C7">Name</a></li>
 
+    <li class="header"><i class="fa fa-bookmark"></i> Categories</li>    
+        <li><a href="/Cake.Email/blog/release">Release</a></li>
+    
+    <li class="header"><i class="fa fa-calendar"></i> Archive</li>    
+        <li><a href="/Cake.Email/blog/archive/2017/10">October, 2017</a></li>
+        <li><a href="/Cake.Email/blog/archive/2017/09">September, 2017</a></li>
+        <li><a href="/Cake.Email/blog/archive/2017/04">April, 2017</a></li>
+        <li><a href="/Cake.Email/blog/archive/2017/02">February, 2017</a></li>
+    
+    <li class="header"><i class="fa fa-user"></i> Authors</li>    
+        <li><a href="/Cake.Email/blog/author/gep13">gep13</a></li>
+        <li><a href="/Cake.Email/blog/author/jericho">jericho</a></li>
 
                     </ul>
                 </section>                
@@ -148,60 +107,43 @@
 
 
 
-<section class="content-header">
-			<h3><a href="/Cake.Email/api/Cake.Email/MailAddress">MailAddress</a>.</h3>
-	<h1>Address <small>Property</small></h1>
-</section>
-<section class="content">
-	
-	
-		<h1 id="Summary">Summary</h1>
-	<div class="lead">
-    Gets or sets the name.
-    </div>
-
-		<div class="panel panel-default">
-  			<div class="panel-body">
-				<dl class="dl-horizontal">	
-						
-						<dt>Namespace</dt>
-						<dd><a href="/Cake.Email/api/Cake.Email">Cake<wbr>.Email</a></dd>
-					
-						<dt>Containing Type</dt>
-						<dd><a href="/Cake.Email/api/Cake.Email/MailAddress">MailAddress</a></dd>		
-					
-				</dl>
-  			</div>
-		</div>
-
-	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public string Address { get; set; }</code></pre>
+	<section class="content-header">
+		<h1>New Release - 0.5.4</h1>
+	</section>
+	<section class="content">
+		
 
 
+<dl class="dl-horizontal">
+    <dt><i class="fa fa-calendar"></i> Published</dt>
+    <dd>02 October 2017</dd>
+        <dt><i class="fa fa-bookmark"></i> Category</dt>
+        <dd><a href="/Cake.Email/blog/release">Release</a></dd>
+            <dt><i class="fa fa-user"></i> Author</dt>
+        <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
+</dl>
+
+<h2 id="new-features">New features</h2>
+<ul>
+<li><a href="https://github.com/cake-contrib/Cake.Email/issues/30"><strong>#30</strong></a> Only send email to recipients with an email address</li>
+</ul>
+<h2 id="breaking-changes">Breaking changes</h2>
+<ul>
+<li><a href="https://github.com/cake-contrib/Cake.Email/issues/29"><strong>#29</strong></a> Use the new Cake.Email.Common nuget package</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>It is recommended to add <code>using Cake.Email.Common;</code> near the top of your Cake script in order to easily add atachments to your email like in this example:</p>
+<pre><code>using Cake.Email.Common;
+
+var attachments = new[]
+{
+    Attachment.FromLocalFile(&quot;C:\\temp\\MyFile.txt&quot;)
+};
+</code></pre>
+<p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
 
 
-
-	<h1 id="Value">Value</h1>
-	<div class="box">
-		<div class="box-body no-padding table-responsive">
-			<table class="table table-striped table-hover two-cols">
-				<thead>
-					<tr>
-						<th>Type</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody><tr>
-					<td>string</td>
-					<td></td>
-				</tr>
-			</tbody></table>
-		</div>
-	</div>	
-
-
-	
-</section>
+	</section>
                 
             </div>           
             
@@ -255,5 +197,5 @@
                 }, 500);
             });
         </script>
-    
-</body></html>
+    </body>
+</html>
