@@ -3,6 +3,8 @@ __Sending an email to a single recipient:__
 ```csharp
 #addin nuget:?package=Cake.Email&loaddependencies=true
 
+using Cake.Email.Common;
+
 Task("SendEmail")
     .Does(() =>
 {
@@ -10,9 +12,9 @@ Task("SendEmail")
     {
         var attachments = new[]
         {
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+                Attachment.FromLocalFile("C:\\temp\\MyFile.txt"),
+                Attachment.FromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+                Attachment.FromLocalFile("C:\\temp\\MyFile.pdf"),
         };
         var result = Email.SendEmail(
                 senderName: "Bob Smith", 
@@ -54,6 +56,8 @@ __Sending an email to multiple recipients:__
 ```csharp
 #addin nuget:?package=Cake.Email&loaddependencies=true
 
+using Cake.Email.Common;
+
 Task("SendEmail")
     .Does(() =>
 {
@@ -61,9 +65,9 @@ Task("SendEmail")
     {
         var attachments = new[]
         {
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-                Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+                Attachment.FromLocalFile("C:\\temp\\MyFile.txt"),
+                Attachment.FromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+                Attachment.FromLocalFile("C:\\temp\\MyFile.pdf"),
         };
         var result = Email.SendEmail(
                 senderName: "Bob Smith", 
