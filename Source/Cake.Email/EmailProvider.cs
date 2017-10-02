@@ -231,6 +231,12 @@ namespace Cake.Email
                     throw new CakeException("You must specify at least one recipient");
                 }
 
+                var safeRecipients = recipients.Where(r => r != null && !string.IsNullOrEmpty(r.Address));
+                if (!safeRecipients.Any())
+                {
+                    throw new CakeException("None of the recipients you specified have an email address");
+                }
+
                 if (attachments == null)
                 {
                     attachments = Enumerable.Empty<Attachment>();
@@ -238,6 +244,8 @@ namespace Cake.Email
 
                 using (var client = new SmtpClient())
                 {
+                    _context.Verbose("Sending email to {0} via SMTP...", string.Join(", ", safeRecipients.Select(r => r.Address).ToArray()));
+
                     client.Connect(settings.SmtpHost, settings.Port, settings.EnableSsl);
 
                     if (!string.IsNullOrEmpty(settings.Username))
@@ -251,7 +259,7 @@ namespace Cake.Email
                     message.From.Add(from);
                     message.Subject = subject;
 
-                    foreach (var recipient in recipients.Where(r => r != null))
+                    foreach (var recipient in safeRecipients)
                     {
                         message.To.Add(new MailboxAddress(recipient.Name, recipient.Address));
                     }
