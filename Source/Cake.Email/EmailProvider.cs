@@ -1,12 +1,12 @@
-﻿using Cake.Common.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Cake.Common.Diagnostics;
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Email.Common;
 using MailKit.Net.Smtp;
 using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Cake.Email
 {
