@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using Cake.Common.Diagnostics;
 using Cake.Core;
 using Cake.Core.Annotations;
-using HeyRed.Mime;
+using Cake.Email.Common;
 using MailKit.Net.Smtp;
 using MimeKit;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Cake.Email
 {
@@ -88,7 +88,7 @@ namespace Cake.Email
         /// }
         /// </code>
         /// </example>
-        public EmailResult SendEmail(string senderName, string senderAddress, string recipientName, string recipientAddress, string subject, string htmlContent, string textContent, IEnumerable<AttachmentBase> attachments, EmailSettings settings)
+        public EmailResult SendEmail(string senderName, string senderAddress, string recipientName, string recipientAddress, string subject, string htmlContent, string textContent, IEnumerable<Attachment> attachments, EmailSettings settings)
         {
             var recipient = new MailAddress(recipientAddress, recipientName);
             return SendEmail(senderName, senderAddress, recipient, subject, htmlContent, textContent, attachments, settings);
@@ -153,7 +153,7 @@ namespace Cake.Email
         /// }
         /// </code>
         /// </example>
-        public EmailResult SendEmail(string senderName, string senderAddress, MailAddress recipient, string subject, string htmlContent, string textContent, IEnumerable<AttachmentBase> attachments, EmailSettings settings)
+        public EmailResult SendEmail(string senderName, string senderAddress, MailAddress recipient, string subject, string htmlContent, string textContent, IEnumerable<Attachment> attachments, EmailSettings settings)
         {
             var recipients = new[] { recipient };
             return SendEmail(senderName, senderAddress, recipients, subject, htmlContent, textContent, attachments, settings);
@@ -222,7 +222,7 @@ namespace Cake.Email
         /// }
         /// </code>
         /// </example>
-        public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable<MailAddress> recipients, string subject, string htmlContent, string textContent, IEnumerable<AttachmentBase> attachments, EmailSettings settings)
+        public EmailResult SendEmail(string senderName, string senderAddress, IEnumerable<MailAddress> recipients, string subject, string htmlContent, string textContent, IEnumerable<Attachment> attachments, EmailSettings settings)
         {
             try
             {
@@ -233,7 +233,7 @@ namespace Cake.Email
 
                 if (attachments == null)
                 {
-                    attachments = Enumerable.Empty<AttachmentBase>();
+                    attachments = Enumerable.Empty<Attachment>();
                 }
 
                 using (var client = new SmtpClient())
@@ -276,26 +276,16 @@ namespace Cake.Email
                     var multipart = new Multipart("mixed");
                     multipart.Add(content);
 
-                    foreach (var linkedResource in attachments.OfType<LinkedResource>())
+                    foreach (var attachment in attachments)
                     {
-                        multipart.Add(new MimePart(linkedResource.MimeType)
+                        var disposition = string.IsNullOrEmpty(attachment.ContentId) ? ContentDisposition.Attachment : ContentDisposition.Inline;
+                        multipart.Add(new MimePart(attachment.MimeType)
                         {
-                            ContentId = linkedResource.ContentId,
-                            ContentObject = new ContentObject(linkedResource.ContentStream, ContentEncoding.Default),
-                            ContentDisposition = new ContentDisposition(ContentDisposition.Inline),
+                            ContentId = attachment.ContentId,
+                            ContentObject = new ContentObject(attachment.ContentStream, ContentEncoding.Default),
+                            ContentDisposition = new ContentDisposition(disposition),
                             ContentTransferEncoding = ContentEncoding.Base64,
-                            FileName = linkedResource.Name
-                        });
-                    }
-
-                    foreach (var linkedResource in attachments.OfType<Attachment>())
-                    {
-                        multipart.Add(new MimePart(linkedResource.MimeType)
-                        {
-                            ContentObject = new ContentObject(linkedResource.ContentStream, ContentEncoding.Default),
-                            ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-                            ContentTransferEncoding = ContentEncoding.Base64,
-                            FileName = linkedResource.Name
+                            FileName = attachment.Name
                         });
                     }
 
@@ -323,62 +313,6 @@ namespace Cake.Email
                 {
                     return new EmailResult(false, DateTime.UtcNow.ToString("u"), e.Message);
                 }
-            }
-        }
-
-        /// <summary>
-        /// Convenience method that creates an attachment from a local file.
-        /// </summary>
-        /// <param name="filePath">The file path.</param>
-        /// <param name="mimeType">Optional: MIME type of the attachment. If this parameter is null, the MIME type will be derived from the file extension.</param>
-        /// <param name="contentId">Optional: the unique identifier for this attachment IF AND ONLY IF the attachment should be embedded in the body of the email. This is useful, for example, if you want to embbed an image to be displayed in the HTML content. For standard attachment, this value should be null.</param>
-        /// <returns>The attachment</returns>
-        /// <exception cref="System.IO.FileNotFoundException">Unable to find the local file</exception>
-        public AttachmentBase CreateAttachmentFromLocalFile(string filePath, string mimeType = null, string contentId = null)
-        {
-            var fileInfo = new FileInfo(filePath);
-            if (!fileInfo.Exists)
-            {
-                throw new FileNotFoundException("Unable to find the local file", filePath);
-            }
-
-            if (string.IsNullOrEmpty(mimeType))
-            {
-                mimeType = MimeTypesMap.GetMimeType(filePath);
-            }
-
-            if (string.IsNullOrEmpty(contentId))
-            {
-                return new Attachment(filePath, mimeType);
-            }
-            else
-            {
-                return new LinkedResource(filePath, mimeType, contentId);
-            }
-        }
-
-        /// <summary>
-        /// Convenience method that creates an attachment from a stream.
-        /// </summary>
-        /// <param name="contentStream">The stream.</param>
-        /// <param name="fileName">The name of the attachment.</param>
-        /// <param name="mimeType">Optional: MIME type of the attachment. If this parameter is null, the MIME type will be derived from the fileName extension.</param>
-        /// <param name="contentId">Optional: the unique identifier for this attachment IF AND ONLY IF the attachment should be embedded in the body of the email. This is useful, for example, if you want to embbed an image to be displayed in the HTML content. For standard attachment, this value should be null.</param>
-        /// <returns>The attachment</returns>
-        public AttachmentBase CreateAttachmentFromStream(Stream contentStream, string fileName, string mimeType = null, string contentId = null)
-        {
-            if (string.IsNullOrEmpty(mimeType))
-            {
-                mimeType = MimeTypesMap.GetMimeType(fileName);
-            }
-
-            if (string.IsNullOrEmpty(contentId))
-            {
-                return new Attachment(contentStream, mimeType, fileName);
-            }
-            else
-            {
-                return new LinkedResource(contentStream, fileName, mimeType, contentId);
             }
         }
     }
