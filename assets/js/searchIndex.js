@@ -34,6 +34,14 @@ var searchModule = function() {
 
     a({
         id:0,
+        title:"EmailSettings",
+        content:"EmailSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:1,
         title:"EmailProvider",
         content:"EmailProvider",
         description:'',
@@ -41,7 +49,7 @@ var searchModule = function() {
     });
 
     a({
-        id:1,
+        id:2,
         title:"EmailAliases",
         content:"EmailAliases",
         description:'',
@@ -49,19 +57,17 @@ var searchModule = function() {
     });
 
     a({
-        id:2,
+        id:3,
         title:"EmailResult",
         content:"EmailResult",
         description:'',
         tags:''
     });
 
-    a({
-        id:3,
+    y({
+        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
         title:"EmailSettings",
-        content:"EmailSettings",
-        description:'',
-        tags:''
+        description:""
     });
 
     y({
@@ -79,12 +85,6 @@ var searchModule = function() {
     y({
         url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailResult',
         title:"EmailResult",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/Cake.Email/api/Cake.Email/EmailSettings',
-        title:"EmailSettings",
         description:""
     });
 
