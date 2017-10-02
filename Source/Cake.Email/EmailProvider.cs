@@ -42,6 +42,8 @@ namespace Cake.Email
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
         /// <code>
+        /// using Cake.Email.Common;
+        ///
         /// var smtpHost = "... your smtp host ...";
         /// var port = 1234;
         /// var enableSsl = true;
@@ -49,9 +51,9 @@ namespace Cake.Email
         /// var password = "... your password ...";
         /// var attachments = new[]
         /// {
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MyFile.txt"),
+        ///     attachment.FromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MyFile.pdf")
         /// };
         /// try
         /// {
@@ -108,6 +110,8 @@ namespace Cake.Email
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
         /// <code>
+        /// using Cake.Email.Common;
+        ///
         /// var smtpHost = "... your smtp host ...";
         /// var port = 1234;
         /// var enableSsl = true;
@@ -115,9 +119,9 @@ namespace Cake.Email
         /// var password = "... your password ...";
         /// var attachments = new[]
         /// {
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MyFile.txt"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MyFile.pdf")
         /// };
         /// try
         /// {
@@ -173,6 +177,8 @@ namespace Cake.Email
         /// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
         /// <example>
         /// <code>
+        /// using Cake.Email.Common;
+        ///
         /// var smtpHost = "... your smtp host ...";
         /// var port = 1234;
         /// var enableSsl = true;
@@ -180,9 +186,9 @@ namespace Cake.Email
         /// var password = "... your password ...";
         /// var attachments = new[]
         /// {
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.txt"),
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MySpreadsheet.xls"),
-        ///     Email.CreateAttachmentFromLocalFile("C:\\temp\\MyFile.pdf"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MyFile.txt"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MySpreadsheet.xls"),
+        ///     Attachment.FromLocalFile("C:\\temp\\MyFile.pdf")
         /// };
         /// try
         /// {
