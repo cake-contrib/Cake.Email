@@ -15,7 +15,6 @@ Author: jericho
 
 ## Note
 
-
 First, include a reference to this addin in your script like this:
 ```
 #addin nuget:?package=Cake.Email
