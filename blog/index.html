@@ -137,13 +137,13 @@
 <pre><code>using Cake.Email.Common;
 </code></pre>
 <p>Also, this addin is designed to take advantage of some of the new features released in CakeBuild version <code>0.22.0</code>. Having said that, a <a href="https://github.com/cake-build/cake/issues/1838">bug</a> was discovered in <code>0.22.0</code> and fixed in <code>0.23.0</code> therefore you need to ensure to ensure that version (or more recent).
-As of this writing, <code>0.23.0-alpha0059</code> is the most recent version of CakeBuild available therefore the package.config contains the following:</p>
+Your <code>tools\package.config</code> should be:</p>
 <pre><code>&lt;packages&gt;
-    &lt;package id=&quot;Cake&quot; version=&quot;0.23.0-alpha0059&quot; /&gt;
+    &lt;package id=&quot;Cake&quot; version=&quot;0.23.0&quot; /&gt;
 &lt;/packages&gt;
 </code></pre>
 <p>Finally, and this is critical, you need to &quot;opt-in&quot; the new feature in CakeBuild that this addin depends on. If you are using the standard bootstrapper, you opt-in these feature like so:</p>
-<pre><code>.\build.ps1 --nuget_useinprocessclient=true --nuget_loaddependencies=true -verbosity diagnostic
+<pre><code>.\build.ps1 --nuget_useinprocessclient=true --nuget_loaddependencies=true
 </code></pre>
 <p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
 
