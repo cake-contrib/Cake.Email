@@ -18,7 +18,7 @@ ToolSettings.SetToolSettings(context: Context,
                                 BuildParameters.RootDirectoryPath + "/Source/Cake.Email.Tests/**/*.cs",
                                 BuildParameters.RootDirectoryPath + "/Source/Cake.Email/**/*.AssemblyInfo.cs"
                             },
-                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.Email.Common]*",
+                            testCoverageFilter: "+[Cake.Email]*",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
