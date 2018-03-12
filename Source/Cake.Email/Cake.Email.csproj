@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
-    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.1</NetStandardImplicitPackageVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DebugType>full</DebugType>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -26,9 +26,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.22.2" PrivateAssets="All" />
-    <PackageReference Include="Cake.Common" Version="0.22.2" PrivateAssets="All" />
-    <PackageReference Include="Cake.Email.Common" Version="0.1.0" />
+    <PackageReference Include="Cake.Core" Version="0.26.1" PrivateAssets="All" />
+    <PackageReference Include="Cake.Common" Version="0.26.1" PrivateAssets="All" />
+    <PackageReference Include="Cake.Email.Common" Version="0.2.0" />
     <PackageReference Include="MailKit" Version="1.18.1.1" />
     <PackageReference Include="MimeTypesMap" Version="1.0.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" PrivateAssets="All" />
