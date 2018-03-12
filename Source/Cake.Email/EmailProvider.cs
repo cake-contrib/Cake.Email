@@ -296,7 +296,7 @@ namespace Cake.Email
                         multipart.Add(new MimePart(attachment.MimeType)
                         {
                             ContentId = attachment.ContentId,
-                            ContentObject = new ContentObject(attachment.ContentStream, ContentEncoding.Default),
+                            Content = new MimeContent(attachment.ContentStream, ContentEncoding.Default),
                             ContentDisposition = new ContentDisposition(disposition),
                             ContentTransferEncoding = ContentEncoding.Base64,
                             FileName = attachment.Name
