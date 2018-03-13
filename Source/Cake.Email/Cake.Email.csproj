@@ -21,10 +21,6 @@
     <Company>Cake Contributions</Company>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>Cake.Email.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.26.1" PrivateAssets="All" />
     <PackageReference Include="Cake.Common" Version="0.26.1" PrivateAssets="All" />
@@ -34,11 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="$(SolutionDir)\stylecop.json" Link="stylecop.json" />
+    <AdditionalFiles Include="$(SolutionDir)stylecop.json" Link="stylecop.json" />
   </ItemGroup>
 
   <PropertyGroup>
-    <CodeAnalysisRuleSet>$(SolutionDir)\Cake.Email.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>$(SolutionDir)Cake.Email.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
 </Project>
