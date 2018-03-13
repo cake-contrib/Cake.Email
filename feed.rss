@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
 	<channel>
 		<title>Cake.Email</title>
 		<link>http://cake-contrib.github.io/Cake.Email</link>
 		<description />
-		<copyright>2017</copyright>
-		<pubDate>Sun, 15 Oct 2017 20:52:57 GMT</pubDate>
-		<lastBuildDate>Sun, 15 Oct 2017 20:52:57 GMT</lastBuildDate>
+		<copyright>2018</copyright>
+		<pubDate>Tue, 13 Mar 2018 17:00:26 GMT</pubDate>
+		<lastBuildDate>Tue, 13 Mar 2018 17:00:26 GMT</lastBuildDate>
 		<item>
 			<title>New Release - 0.5.4</title>
 			<link>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.5.4</link>
@@ -14,6 +14,32 @@
 			<author>jericho</author>
 			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.5.4</guid>
 			<pubDate>Mon, 02 Oct 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h2 id="new-features"&gt;New features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/30"&gt;&lt;strong&gt;#30&lt;/strong&gt;&lt;/a&gt; Only send email to recipients with an email address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="breaking-changes"&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/29"&gt;&lt;strong&gt;#29&lt;/strong&gt;&lt;/a&gt; Use the new Cake.Email.Common nuget package&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="note"&gt;Note&lt;/h2&gt;
+&lt;p&gt;First, include a reference to this addin in your script like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#addin nuget:?package=Cake.Email
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necesary, but it simplifies dealing with attachements:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using Cake.Email.Common;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also, this addin is designed to take advantage of some of the new features released in CakeBuild version &lt;code&gt;0.22.0&lt;/code&gt;. Having said that, a &lt;a href="https://github.com/cake-build/cake/issues/1838"&gt;bug&lt;/a&gt; was discovered in &lt;code&gt;0.22.0&lt;/code&gt; and fixed in &lt;code&gt;0.23.0&lt;/code&gt; therefore you need to ensure to ensure that version (or more recent).
+Your &lt;code&gt;tools\package.config&lt;/code&gt; should be:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;packages&amp;gt;
+    &amp;lt;package id=&amp;quot;Cake&amp;quot; version=&amp;quot;0.23.0&amp;quot; /&amp;gt;
+&amp;lt;/packages&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, and this is critical, you need to &amp;quot;opt-in&amp;quot; the new feature in CakeBuild that this addin depends on. If you are using the standard bootstrapper, you opt-in these feature like so:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;.\build.ps1 --nuget_useinprocessclient=true --nuget_loaddependencies=true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
 		</item>
 		<item>
 			<title>New Release - 0.5.0</title>
@@ -22,6 +48,21 @@
 			<author>jericho</author>
 			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.5.0</guid>
 			<pubDate>Sat, 23 Sep 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h2 id="documentation"&gt;Documentation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/pull/23"&gt;&lt;strong&gt;#23&lt;/strong&gt;&lt;/a&gt; Updated documentation to use the updated alias&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="new-features"&gt;New features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/26"&gt;&lt;strong&gt;#26&lt;/strong&gt;&lt;/a&gt; Support Cake 0.22.2&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/24"&gt;&lt;strong&gt;#24&lt;/strong&gt;&lt;/a&gt; Multi-target net46 and netstandard1.6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="breaking-changes"&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/25"&gt;&lt;strong&gt;#25&lt;/strong&gt;&lt;/a&gt; Switch away from System.Net.Mail&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
 		</item>
 		<item>
 			<title>New Release - 0.4.0</title>
@@ -30,6 +71,13 @@
 			<author>jericho</author>
 			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.4.0</guid>
 			<pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h2 id="breaking-changes"&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/16"&gt;&lt;strong&gt;#16&lt;/strong&gt;&lt;/a&gt; Attach files option not availble in cake mail addin&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/17"&gt;&lt;strong&gt;#17&lt;/strong&gt;&lt;/a&gt; Send multi-part emails&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
 		</item>
 		<item>
 			<title>New Release - 0.3.0</title>
@@ -38,6 +86,38 @@
 			<author>jericho</author>
 			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.3.0</guid>
 			<pubDate>Wed, 12 Apr 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h2 id="new-feature"&gt;New feature&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/15"&gt;&lt;strong&gt;#15&lt;/strong&gt;&lt;/a&gt; Allow email to be sent to multiple recipients&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
+		</item>
+		<item>
+			<title>New Release - 0.6.0</title>
+			<link>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.6.0</link>
+			<description>&lt;p&gt;First, include a reference to this addin in your script like this:&lt;/p&gt;</description>
+			<author>jericho</author>
+			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.6.0</guid>
+			<pubDate>Mon, 13 Mar 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h2 id="breaking-changes"&gt;Breaking changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/33"&gt;&lt;strong&gt;#33&lt;/strong&gt;&lt;/a&gt; Upgrade to Cake 0.26.0 and target netstandard2.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="note"&gt;Note&lt;/h2&gt;
+&lt;p&gt;First, include a reference to this addin in your script like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#addin nuget:?package=Cake.Email&amp;amp;version=0.6.0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necesary, but it simplifies dealing with attachements:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using Cake.Email.Common;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also, this addin is designed to take advantage of some of the new features released in CakeBuild version &lt;code&gt;0.26.0&lt;/code&gt; therefore your &lt;code&gt;tools\package.config&lt;/code&gt; should look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;packages&amp;gt;
+    &amp;lt;package id=&amp;quot;Cake&amp;quot; version=&amp;quot;0.26.0&amp;quot; /&amp;gt;
+&amp;lt;/packages&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
 		</item>
 		<item>
 			<title>New Release - 0.2.0</title>
@@ -46,6 +126,20 @@
 			<author>gep13</author>
 			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.2.0</guid>
 			<pubDate>Wed, 01 Feb 2017 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="long-time-no-release"&gt;Long time, no release&lt;/h1&gt;
+&lt;p&gt;Thanks to a contribution from &amp;#64;devlead, we are releasing 0.2.0 of Cake.Email.  This includes the following:&lt;/p&gt;
+&lt;h2 id="improvements"&gt;Improvements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/9"&gt;&lt;strong&gt;#9&lt;/strong&gt;&lt;/a&gt; Update to latest Cake&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/6"&gt;&lt;strong&gt;#6&lt;/strong&gt;&lt;/a&gt; Switch away from using gep13.DefaultBuild and use Cake.Recipe instead&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="documentation"&gt;Documentation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/14"&gt;&lt;strong&gt;#14&lt;/strong&gt;&lt;/a&gt; Add Wyam Documentation generation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;It was decided that this was required due to the fact that with the impending release of Cake 0.18.0 all addins need to be at least 0.16.0, so we decided to upload to the latest.&lt;/p&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
 		</item>
 	</channel>
 </rss>
