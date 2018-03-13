@@ -34,16 +34,16 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"EmailProvider",
-        content:"EmailProvider",
+        title:"EmailAliases",
+        content:"EmailAliases",
         description:'',
         tags:''
     });
 
     a({
         id:1,
-        title:"EmailResult",
-        content:"EmailResult",
+        title:"EmailProvider",
+        content:"EmailProvider",
         description:'',
         tags:''
     });
@@ -58,21 +58,21 @@ var searchModule = function() {
 
     a({
         id:3,
-        title:"EmailAliases",
-        content:"EmailAliases",
+        title:"EmailResult",
+        content:"EmailResult",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.Email/api/Cake.Email/EmailProvider',
-        title:"EmailProvider",
+        url:'/Cake.Email/api/Cake.Email/EmailAliases',
+        title:"EmailAliases",
         description:""
     });
 
     y({
-        url:'/Cake.Email/api/Cake.Email/EmailResult',
-        title:"EmailResult",
+        url:'/Cake.Email/api/Cake.Email/EmailProvider',
+        title:"EmailProvider",
         description:""
     });
 
@@ -83,8 +83,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/api/Cake.Email/EmailAliases',
-        title:"EmailAliases",
+        url:'/Cake.Email/api/Cake.Email/EmailResult',
+        title:"EmailResult",
         description:""
     });
 

@@ -4,7 +4,7 @@
 	<id>http://cake-contrib.github.io/Cake.Email</id>
 	<title>Cake.Email</title>
 	<rights>2018</rights>
-	<updated>2018-03-13T17:08:27Z</updated>
+	<updated>2018-03-13T18:43:34Z</updated>
 	<entry>
 		<author>
 			<name>jericho</name>
@@ -113,7 +113,7 @@ Your &lt;code&gt;tools\package.config&lt;/code&gt; should be:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id="note"&gt;Note&lt;/h2&gt;
 &lt;p&gt;First, include a reference to this addin in your script like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;#addin nuget:?package=Cake.Email&amp;amp;version=0.6.0&amp;quot;
+&lt;pre&gt;&lt;code&gt;#addin nuget:?package=Cake.Email&amp;amp;version=0.6.0
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necesary, but it simplifies dealing with attachements:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;using Cake.Email.Common;
