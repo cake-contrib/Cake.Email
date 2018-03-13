@@ -1,6 +1,6 @@
 ---
 Title: New Release - 0.6.0
-Published: 13/03/2017
+Published: 13/03/2018
 Category: Release
 Author: jericho
 ---
