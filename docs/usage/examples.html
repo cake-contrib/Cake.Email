@@ -109,7 +109,7 @@
 	</section>
 	<section class="content">
 		<html><head></head><body><p><strong>Sending an email to a single recipient:</strong></p>
-<pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;version=0.6.0
+<pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;version=0.6.0&amp;loaddependencies=true
 
 using Cake.Email.Common;
 
@@ -159,7 +159,7 @@ Task("SendEmail")
 });
 </code></pre>
 <p><strong>Sending an email to multiple recipients:</strong></p>
-<pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;version=0.6.0
+<pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;version=0.6.0&amp;loaddependencies=true
 
 using Cake.Email.Common;
 
