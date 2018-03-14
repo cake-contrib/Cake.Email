@@ -8,7 +8,7 @@ Cake.Email is an Addin for [Cake](http://cakebuild.net/) which allows sending of
 
 First, include a reference to this addin in your script like this:
 ```
-#addin nuget:?package=Cake.Email&version=0.6.0
+#addin nuget:?package=Cake.Email&version=0.6.0&loaddependencies=true
 ```
 
 Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necessary, but it simplifies dealing with attachements: 
