@@ -1,6 +1,6 @@
-﻿using Cake.Common.Diagnostics;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.Annotations;
+using Cake.Core.Diagnostics;
 using Cake.Email.Common;
 using MailKit.Net.Smtp;
 using MimeKit;
@@ -250,7 +250,7 @@ namespace Cake.Email
 
 				using (var client = new SmtpClient())
 				{
-					_context.Verbose("Sending email to {0} via SMTP...", string.Join(", ", safeRecipients.Select(r => r.Address).ToArray()));
+					_context.Log.Verbose("Sending email to {0} via SMTP...", string.Join(", ", safeRecipients.Select(r => r.Address).ToArray()));
 
 					client.Connect(settings.SmtpHost, settings.Port, settings.EnableSsl);
 
@@ -287,8 +287,10 @@ namespace Cake.Email
 						content.Add(new TextPart("html") { Text = htmlContent });
 					}
 
-					var multipart = new Multipart("mixed");
-					multipart.Add(content);
+					var multipart = new Multipart("mixed")
+					{
+						content
+					};
 
 					foreach (var attachment in attachments)
 					{
