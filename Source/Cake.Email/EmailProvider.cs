@@ -1,6 +1,6 @@
-﻿using Cake.Common.Diagnostics;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.Annotations;
+using Cake.Core.Diagnostics;
 using Cake.Email.Common;
 using MailKit.Net.Smtp;
 using MimeKit;
@@ -11,7 +11,7 @@ using System.Linq;
 namespace Cake.Email
 {
 	/// <summary>
-	/// Contains functionality related to emails
+	/// Contains functionality related to emails.
 	/// </summary>
 	[CakeAliasCategory("Email")]
 	public sealed class EmailProvider
@@ -28,18 +28,18 @@ namespace Cake.Email
 		}
 
 		/// <summary>
-		/// Sends an email via SMTP, based on the provided settings
+		/// Sends an email via SMTP, based on the provided settings.
 		/// </summary>
-		/// <param name="senderName">The name of the person sending the email</param>
-		/// <param name="senderAddress">The email address of the person sending the email</param>
-		/// <param name="recipientName">The name of the person who will receive the email</param>
-		/// <param name="recipientAddress">The email address of the person who will recieve the email</param>
-		/// <param name="subject">The subject line of the email</param>
-		/// <param name="htmlContent">The HTML content of the email</param>
-		/// <param name="textContent">The text content of the email</param>
-		/// <param name="attachments">Attachments to send with the email</param>
-		/// <param name="settings">The settings to be used when sending the email</param>
-		/// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
+		/// <param name="senderName">The name of the person sending the email.</param>
+		/// <param name="senderAddress">The email address of the person sending the email.</param>
+		/// <param name="recipientName">The name of the person who will receive the email.</param>
+		/// <param name="recipientAddress">The email address of the person who will recieve the email.</param>
+		/// <param name="subject">The subject line of the email.</param>
+		/// <param name="htmlContent">The HTML content of the email.</param>
+		/// <param name="textContent">The text content of the email.</param>
+		/// <param name="attachments">Attachments to send with the email.</param>
+		/// <param name="settings">The settings to be used when sending the email.</param>
+		/// <returns>An instance of <see cref="EmailResult"/> indicating success/failure.</returns>
 		/// <example>
 		/// <code>
 		/// using Cake.Email.Common;
@@ -97,17 +97,17 @@ namespace Cake.Email
 		}
 
 		/// <summary>
-		/// Sends an email via SMTP, based on the provided settings
+		/// Sends an email via SMTP, based on the provided settings.
 		/// </summary>
-		/// <param name="senderName">The name of the person sending the email</param>
-		/// <param name="senderAddress">The email address of the person sending the email</param>
-		/// <param name="recipient">The recipient who will receive the email</param>
-		/// <param name="subject">The subject line of the email</param>
-		/// <param name="htmlContent">The HTML content of the email</param>
-		/// <param name="textContent">The text content of the email</param>
-		/// <param name="attachments">Attachments to send with the email</param>
-		/// <param name="settings">The settings to be used when sending the email</param>
-		/// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
+		/// <param name="senderName">The name of the person sending the email.</param>
+		/// <param name="senderAddress">The email address of the person sending the email.</param>
+		/// <param name="recipient">The recipient who will receive the email.</param>
+		/// <param name="subject">The subject line of the email.</param>
+		/// <param name="htmlContent">The HTML content of the email.</param>
+		/// <param name="textContent">The text content of the email.</param>
+		/// <param name="attachments">Attachments to send with the email.</param>
+		/// <param name="settings">The settings to be used when sending the email.</param>
+		/// <returns>An instance of <see cref="EmailResult"/> indicating success/failure.</returns>
 		/// <example>
 		/// <code>
 		/// using Cake.Email.Common;
@@ -164,17 +164,17 @@ namespace Cake.Email
 		}
 
 		/// <summary>
-		/// Sends an email via SMTP, based on the provided settings
+		/// Sends an email via SMTP, based on the provided settings.
 		/// </summary>
-		/// <param name="senderName">The name of the person sending the email</param>
-		/// <param name="senderAddress">The email address of the person sending the email</param>
-		/// <param name="recipients">An enumeration of recipients who will receive the email</param>
-		/// <param name="subject">The subject line of the email</param>
-		/// <param name="htmlContent">The HTML content of the email</param>
-		/// <param name="textContent">The text content of the email</param>
-		/// <param name="attachments">Attachments to send with the email</param>
-		/// <param name="settings">The settings to be used when sending the email</param>
-		/// <returns>An instance of <see cref="EmailResult"/> indicating success/failure</returns>
+		/// <param name="senderName">The name of the person sending the email.</param>
+		/// <param name="senderAddress">The email address of the person sending the email.</param>
+		/// <param name="recipients">An enumeration of recipients who will receive the email.</param>
+		/// <param name="subject">The subject line of the email.</param>
+		/// <param name="htmlContent">The HTML content of the email.</param>
+		/// <param name="textContent">The text content of the email.</param>
+		/// <param name="attachments">Attachments to send with the email.</param>
+		/// <param name="settings">The settings to be used when sending the email.</param>
+		/// <returns>An instance of <see cref="EmailResult"/> indicating success/failure.</returns>
 		/// <example>
 		/// <code>
 		/// using Cake.Email.Common;
@@ -250,7 +250,7 @@ namespace Cake.Email
 
 				using (var client = new SmtpClient())
 				{
-					_context.Verbose("Sending email to {0} via SMTP...", string.Join(", ", safeRecipients.Select(r => r.Address).ToArray()));
+					_context.Log.Verbose("Sending email to {0} via SMTP...", string.Join(", ", safeRecipients.Select(r => r.Address).ToArray()));
 
 					client.Connect(settings.SmtpHost, settings.Port, settings.EnableSsl);
 
@@ -287,8 +287,10 @@ namespace Cake.Email
 						content.Add(new TextPart("html") { Text = htmlContent });
 					}
 
-					var multipart = new Multipart("mixed");
-					multipart.Add(content);
+					var multipart = new Multipart("mixed")
+					{
+						content
+					};
 
 					foreach (var attachment in attachments)
 					{

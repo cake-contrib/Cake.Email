@@ -1,7 +1,7 @@
 __Sending an email to a single recipient:__
 
 ```csharp
-#addin nuget:?package=Cake.Email&version=0.6.0
+#addin nuget:?package=Cake.Email&version=0.7.0&loaddependencies=true
 
 using Cake.Email.Common;
 
@@ -54,7 +54,7 @@ Task("SendEmail")
 __Sending an email to multiple recipients:__
 
 ```csharp
-#addin nuget:?package=Cake.Email&version=0.6.0
+#addin nuget:?package=Cake.Email&version=0.7.0&loaddependencies=true
 
 using Cake.Email.Common;
 
