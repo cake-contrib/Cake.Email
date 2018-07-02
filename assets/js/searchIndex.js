@@ -34,8 +34,8 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"EmailSettings",
-        content:"EmailSettings",
+        title:"EmailResult",
+        content:"EmailResult",
         description:'',
         tags:''
     });
@@ -58,15 +58,15 @@ var searchModule = function() {
 
     a({
         id:3,
-        title:"EmailResult",
-        content:"EmailResult",
+        title:"EmailSettings",
+        content:"EmailSettings",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.Email/api/Cake.Email/EmailSettings',
-        title:"EmailSettings",
+        url:'/Cake.Email/api/Cake.Email/EmailResult',
+        title:"EmailResult",
         description:""
     });
 
@@ -83,8 +83,8 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.Email/api/Cake.Email/EmailResult',
-        title:"EmailResult",
+        url:'/Cake.Email/api/Cake.Email/EmailSettings',
+        title:"EmailSettings",
         description:""
     });
 
