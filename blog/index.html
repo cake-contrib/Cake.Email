@@ -89,6 +89,7 @@
         <li><a href="/Cake.Email/blog/Release">Release</a></li>
     
     <li class="header"><i class="fa fa-calendar"></i> Archive</li>    
+        <li><a href="/Cake.Email/blog/archive/2019/04">April, 2019</a></li>
         <li><a href="/Cake.Email/blog/archive/2018/07">July, 2018</a></li>
         <li><a href="/Cake.Email/blog/archive/2018/03">March, 2018</a></li>
         <li><a href="/Cake.Email/blog/archive/2017/10">October, 2017</a></li>
@@ -111,13 +112,45 @@
 
 
 
-	<section class="content-header">
-		<h1>Blog</h1>
-	</section>
+		<section class="content-header">
+			<h1>Blog</h1>
+		</section>
 	<section class="content">
 		
 
+        <h2><a href="/Cake.Email/blog/new-release-0.8.0">New Release - 0.8.0</a></h2>
+
+<dl class="dl-horizontal">
+    <dt><i class="fa fa-calendar"></i> Published</dt>
+    <dd>17 April 2019</dd>
+        <dt><i class="fa fa-bookmark"></i> Category</dt>
+        <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
+            <dt><i class="fa fa-user"></i> Author</dt>
+        <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
+</dl>
+            <div>
+                <h2 id="improvements">Improvements</h2>
+<ul>
+<li><a href="https://github.com/cake-contrib/Cake.Email/issues/35"><strong>#35</strong></a> Support Cake 0.33.0</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>First, include a reference to this addin in your script like this:</p>
+<pre><code>#addin nuget:?package=Cake.Email&amp;version=0.8.0&amp;loaddependencies=true
+</code></pre>
+<p>Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necesary, but it simplifies dealing with attachements:</p>
+<pre><code>using Cake.Email.Common;
+</code></pre>
+<p>Also, this addin is designed to take advantage of some of the new features released in CakeBuild version <code>0.33.0</code> therefore your <code>tools\package.config</code> should look like this:</p>
+<pre><code>&lt;packages&gt;
+    &lt;package id=&quot;Cake&quot; version=&quot;0.33.0&quot; /&gt;
+&lt;/packages&gt;
+</code></pre>
+<p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
+
+            </div>
+        <hr />
         <h2><a href="/Cake.Email/blog/new-release-0.7.0">New Release - 0.7.0</a></h2>
+
 <dl class="dl-horizontal">
     <dt><i class="fa fa-calendar"></i> Published</dt>
     <dd>02 July 2018</dd>
@@ -125,28 +158,14 @@
         <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
             <dt><i class="fa fa-user"></i> Author</dt>
         <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
-</dl>            <div>
-                <h2 id="breaking-changes">Breaking changes</h2>
-<ul>
-<li><a href="https://github.com/cake-contrib/Cake.Email/issues/34"><strong>#34</strong></a> Recommended changes resulting from automated audit</li>
-</ul>
-<h2 id="note">Note</h2>
-<p>First, include a reference to this addin in your script like this:</p>
-<pre><code>#addin nuget:?package=Cake.Email&amp;version=0.7.0&amp;loaddependencies=true
-</code></pre>
-<p>Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necesary, but it simplifies dealing with attachements:</p>
-<pre><code>using Cake.Email.Common;
-</code></pre>
-<p>Also, this addin is designed to take advantage of some of the new features released in CakeBuild version <code>0.28.0</code> therefore your <code>tools\package.config</code> should look like this:</p>
-<pre><code>&lt;packages&gt;
-    &lt;package id=&quot;Cake&quot; version=&quot;0.28.0&quot; /&gt;
-&lt;/packages&gt;
-</code></pre>
-<p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
-
+</dl>
+            <div>
+                <p>First, include a reference to this addin in your script like this:</p>
+                <a href="/Cake.Email/blog/new-release-0.7.0">Read more...</a>
             </div>
         <hr />
         <h2><a href="/Cake.Email/blog/new-release-0.6.0">New Release - 0.6.0</a></h2>
+
 <dl class="dl-horizontal">
     <dt><i class="fa fa-calendar"></i> Published</dt>
     <dd>13 March 2018</dd>
@@ -154,12 +173,14 @@
         <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
             <dt><i class="fa fa-user"></i> Author</dt>
         <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
-</dl>            <div>
+</dl>
+            <div>
                 <p>First, include a reference to this addin in your script like this:</p>
                 <a href="/Cake.Email/blog/new-release-0.6.0">Read more...</a>
             </div>
         <hr />
         <h2><a href="/Cake.Email/blog/new-release-0.5.4">New Release - 0.5.4</a></h2>
+
 <dl class="dl-horizontal">
     <dt><i class="fa fa-calendar"></i> Published</dt>
     <dd>02 October 2017</dd>
@@ -167,12 +188,14 @@
         <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
             <dt><i class="fa fa-user"></i> Author</dt>
         <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
-</dl>            <div>
+</dl>
+            <div>
                 <p>First, include a reference to this addin in your script like this:</p>
                 <a href="/Cake.Email/blog/new-release-0.5.4">Read more...</a>
             </div>
         <hr />
         <h2><a href="/Cake.Email/blog/new-release-0.5.0">New Release - 0.5.0</a></h2>
+
 <dl class="dl-horizontal">
     <dt><i class="fa fa-calendar"></i> Published</dt>
     <dd>23 September 2017</dd>
@@ -180,22 +203,10 @@
         <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
             <dt><i class="fa fa-user"></i> Author</dt>
         <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
-</dl>            <div>
+</dl>
+            <div>
                 <p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
                 <a href="/Cake.Email/blog/new-release-0.5.0">Read more...</a>
-            </div>
-        <hr />
-        <h2><a href="/Cake.Email/blog/new-release-0.4.0">New Release - 0.4.0</a></h2>
-<dl class="dl-horizontal">
-    <dt><i class="fa fa-calendar"></i> Published</dt>
-    <dd>21 April 2017</dd>
-        <dt><i class="fa fa-bookmark"></i> Category</dt>
-        <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
-            <dt><i class="fa fa-user"></i> Author</dt>
-        <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
-</dl>            <div>
-                <p>Please do not hesitate to reach out in the <a href="https://gitter.im/cake-contrib/Lobby">Gitter Channel</a> if you have any issues using this addin.</p>
-                <a href="/Cake.Email/blog/new-release-0.4.0">Read more...</a>
             </div>
         <hr />
     <nav>
@@ -203,7 +214,7 @@
             <li class="previous">                
             </li>
             <li class="next">
-                    <a href="/blog/page2">Older <span aria-hidden="true">&rarr;</span></a>
+                    <a href="/Cake.Email/blog/page2">Older <span aria-hidden="true">&rarr;</span></a>
             </li>
         </ul>
     </nav>

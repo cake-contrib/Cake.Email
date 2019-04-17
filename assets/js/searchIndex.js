@@ -1,91 +1,108 @@
 
-var camelCaseTokenizer = function (obj) {
+var camelCaseTokenizer = function (builder) {
+
+  var pipelineFunction = function (token) {
     var previous = '';
-    return obj.toString().trim().split(/[\s\-]+|(?=[A-Z])/).reduce(function(acc, cur) {
-        var current = cur.toLowerCase();
-        if(acc.length === 0) {
-            previous = current;
-            return acc.concat(current);
-        }
-        previous = previous.concat(current);
-        return acc.concat([current, previous]);
+    // split camelCaseString to on each word and combined words
+    // e.g. camelCaseTokenizer -> ['camel', 'case', 'camelcase', 'tokenizer', 'camelcasetokenizer']
+    var tokenStrings = token.toString().trim().split(/[\s\-]+|(?=[A-Z])/).reduce(function(acc, cur) {
+      var current = cur.toLowerCase();
+      if (acc.length === 0) {
+        previous = current;
+        return acc.concat(current);
+      }
+      previous = previous.concat(current);
+      return acc.concat([current, previous]);
     }, []);
+
+    // return token for each string
+    // will copy any metadata on input token
+    return tokenStrings.map(function(tokenString) {
+      return token.clone(function(str) {
+        return tokenString;
+      })
+    });
+  }
+
+  lunr.Pipeline.registerFunction(pipelineFunction, 'camelCaseTokenizer')
+
+  builder.pipeline.before(lunr.stemmer, pipelineFunction)
 }
-lunr.tokenizer.registerFunction(camelCaseTokenizer, 'camelCaseTokenizer')
 var searchModule = function() {
+    var documents = [];
     var idMap = [];
-    function y(e) { 
-        idMap.push(e); 
+    function a(a,b) { 
+        documents.push(a);
+        idMap.push(b); 
     }
+
+    a(
+        {
+            id:0,
+            title:"EmailSettings",
+            content:"EmailSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Email/api/Cake.Email/EmailSettings',
+            title:"EmailSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:1,
+            title:"EmailAliases",
+            content:"EmailAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Email/api/Cake.Email/EmailAliases',
+            title:"EmailAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:2,
+            title:"EmailResult",
+            content:"EmailResult",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Email/api/Cake.Email/EmailResult',
+            title:"EmailResult",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"EmailProvider",
+            content:"EmailProvider",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Email/api/Cake.Email/EmailProvider',
+            title:"EmailProvider",
+            description:""
+        }
+    );
     var idx = lunr(function() {
-        this.field('title', { boost: 10 });
+        this.field('title');
         this.field('content');
-        this.field('description', { boost: 5 });
-        this.field('tags', { boost: 50 });
+        this.field('description');
+        this.field('tags');
         this.ref('id');
-        this.tokenizer(camelCaseTokenizer);
+        this.use(camelCaseTokenizer);
 
         this.pipeline.remove(lunr.stopWordFilter);
         this.pipeline.remove(lunr.stemmer);
-    });
-    function a(e) { 
-        idx.add(e); 
-    }
-
-    a({
-        id:0,
-        title:"EmailAliases",
-        content:"EmailAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"EmailProvider",
-        content:"EmailProvider",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"EmailSettings",
-        content:"EmailSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
-        title:"EmailResult",
-        content:"EmailResult",
-        description:'',
-        tags:''
-    });
-
-    y({
-        url:'/Cake.Email/api/Cake.Email/EmailAliases',
-        title:"EmailAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/api/Cake.Email/EmailProvider',
-        title:"EmailProvider",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/api/Cake.Email/EmailSettings',
-        title:"EmailSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.Email/api/Cake.Email/EmailResult',
-        title:"EmailResult",
-        description:""
+        documents.forEach(function (doc) { this.add(doc) }, this)
     });
 
     return {

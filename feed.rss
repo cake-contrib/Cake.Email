@@ -4,9 +4,35 @@
 		<title>Cake.Email</title>
 		<link>http://cake-contrib.github.io/Cake.Email</link>
 		<description />
-		<copyright>2018</copyright>
-		<pubDate>Mon, 02 Jul 2018 18:03:22 GMT</pubDate>
-		<lastBuildDate>Mon, 02 Jul 2018 18:03:22 GMT</lastBuildDate>
+		<copyright>2019</copyright>
+		<pubDate>Wed, 17 Apr 2019 16:54:41 GMT</pubDate>
+		<lastBuildDate>Wed, 17 Apr 2019 16:54:41 GMT</lastBuildDate>
+		<item>
+			<title>New Release - 0.8.0</title>
+			<link>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.8.0</link>
+			<description>&lt;p&gt;First, include a reference to this addin in your script like this:&lt;/p&gt;</description>
+			<author>jericho</author>
+			<guid>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.8.0</guid>
+			<pubDate>Wed, 17 Apr 2019 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h2 id="improvements"&gt;Improvements&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/cake-contrib/Cake.Email/issues/35"&gt;&lt;strong&gt;#35&lt;/strong&gt;&lt;/a&gt; Support Cake 0.33.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="note"&gt;Note&lt;/h2&gt;
+&lt;p&gt;First, include a reference to this addin in your script like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#addin nuget:?package=Cake.Email&amp;amp;version=0.8.0&amp;amp;loaddependencies=true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necesary, but it simplifies dealing with attachements:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;using Cake.Email.Common;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Also, this addin is designed to take advantage of some of the new features released in CakeBuild version &lt;code&gt;0.33.0&lt;/code&gt; therefore your &lt;code&gt;tools\package.config&lt;/code&gt; should look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;packages&amp;gt;
+    &amp;lt;package id=&amp;quot;Cake&amp;quot; version=&amp;quot;0.33.0&amp;quot; /&amp;gt;
+&amp;lt;/packages&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>New Release - 0.7.0</title>
 			<link>http://cake-contrib.github.io/Cake.Email/blog/new-release-0.7.0</link>
