@@ -4,7 +4,7 @@ init:
 
 #  Build Script
 build_script:
-  - ps: .\build.ps1 -Target "AppVeyor"
+  - ps: .\build.ps1 -Target AppVeyor
 
 # Tests
 test: off
