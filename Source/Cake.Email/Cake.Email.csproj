@@ -15,7 +15,7 @@
     <Authors>Jericho</Authors>
     <Owners>Jericho</Owners>
     <PackageProjectUrl>https://github.com/cake-contrib/Cake.Email/</PackageProjectUrl>
-    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageIcon>PackageIcon.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>Copyright (c) Cake Contributions 2016 - Present</Copyright>
     <Company>Cake Contributions</Company>
@@ -23,9 +23,13 @@
 
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Email.Common" Version="0.3.0" />
-    <PackageReference Include="MailKit" Version="2.1.4" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-rc.114" PrivateAssets="All" />
+    <PackageReference Include="Cake.Email.Common" Version="0.4.0" />
+    <PackageReference Include="MailKit" Version="2.3.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\PackageIcon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
