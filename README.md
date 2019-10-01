@@ -7,17 +7,20 @@ Cake.Email is an Addin for [Cake](http://cakebuild.net/) which allows sending of
 ## Usage
 
 First, include a reference to this addin in your script like this:
-```
+
+```csharp
 #addin nuget:?package=Cake.Email&version=0.8.0&loaddependencies=true
 ```
 
-Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necessary, but it simplifies dealing with attachements: 
-```
+Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necessary, but it simplifies dealing with attachements:
+
+```csharp
 using Cake.Email.Common;
 ```
 
 Also, this addin is designed to take advantage of some of the new features released in CakeBuild version `0.33.0` therefore your `tools\package.config` should look like this:
-```
+
+```xml
 <packages>
     <package id="Cake" version="0.33.0" />
 </packages>
@@ -45,6 +48,7 @@ Also, this addin is designed to take advantage of some of the new features relea
 - [Documentation](https://cake-contrib.github.io/Cake.Email/)
 
 ## Chat Room
-Come join in the conversation about Cake.Email in our Gitter Chat Room
+
+Come join in the conversation about Cake.Email in our Gitter Chat Room.
 
 [![Join the chat at https://gitter.im/cake-contrib/Lobby](https://badges.gitter.im/cake-contrib/Lobby.svg)](https://gitter.im/cake-contrib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
