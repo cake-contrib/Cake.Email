@@ -28,4 +28,4 @@ Also, this addin is designed to take advantage of some of the new features relea
 </packages>
 ```
 
-Please do not hesitate to reach out in the [Gitter Channel](https://gitter.im/cake-contrib/Lobby) if you have any issues using this addin.
+Please do not hesitate to reach out in the [GitHub discussions](https://github.com/cake-build/cake/discussions/categories/extension-q-a) if you have any issues using this addin.

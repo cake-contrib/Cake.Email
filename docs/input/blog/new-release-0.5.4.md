@@ -38,4 +38,4 @@ Finally, and this is critical, you need to "opt-in" the new feature in CakeBuild
 .\build.ps1 --nuget_useinprocessclient=true --nuget_loaddependencies=true
 ```
 
-Please do not hesitate to reach out in the [Gitter Channel](https://gitter.im/cake-contrib/Lobby) if you have any issues using this addin.
+Please do not hesitate to reach out in the [GitHub discussions](https://github.com/cake-build/cake/discussions/categories/extension-q-a) if you have any issues using this addin.

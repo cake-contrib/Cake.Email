@@ -10,4 +10,4 @@ Author: jericho
 - [__#16__](https://github.com/cake-contrib/Cake.Email/issues/16) Attach files option not availble in cake mail addin
 - [__#17__](https://github.com/cake-contrib/Cake.Email/issues/17) Send multi-part emails 
 
-Please do not hesitate to reach out in the [Gitter Channel](https://gitter.im/cake-contrib/Lobby) if you have any issues using this addin.
+Please do not hesitate to reach out in the [GitHub discussions](https://github.com/cake-build/cake/discussions/categories/extension-q-a) if you have any issues using this addin.
