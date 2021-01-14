@@ -1,22 +1,19 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
+﻿<!DOCTYPE html><html><head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="description" />
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Email - Examples</title>
-        <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
-        <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="/Cake.Email/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
-        <link href="/Cake.Email/assets/css/theme/theme.css" rel="stylesheet" />
+        <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/Cake.Email/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/Cake.Email/assets/css/theme/theme.css" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
         <link href="/Cake.Email/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/Cake.Email/assets/css/override.css" rel="stylesheet" />
+        <link href="/Cake.Email/assets/css/override.css" rel="stylesheet">
         <script src="/Cake.Email/assets/js/jquery-2.2.3.min.js"></script>
         <script src="/Cake.Email/assets/js/bootstrap.min.js"></script>        
         <script src="/Cake.Email/assets/js/app.min.js"></script>         
@@ -24,6 +21,7 @@
         <script src="/Cake.Email/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Email/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Email/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Email/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Email/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Email/assets/js/respond.min.js"></script>
@@ -110,7 +108,7 @@
 			<h1>Examples</h1>
 		</section>
 	<section class="content">
-		<html><head></head><body><p><strong>Sending an email to a single recipient:</strong></p>
+		<p><strong>Sending an email to a single recipient:</strong></p>
 <pre><code class="language-csharp">#addin nuget:?package=Cake.Email&amp;version=0.8.0&amp;loaddependencies=true
 
 using Cake.Email.Common;
@@ -128,9 +126,9 @@ Task("SendEmail")
         };
         var result = Email.SendEmail(
                 senderName: "Bob Smith", 
-                senderAddress: "bob&#64;example.com",
+                senderAddress: "bob@example.com",
                 recipientName: "Jane Doe",
-                recipientAddress: "jane&#64;example.com",
+                recipientAddress: "jane@example.com",
                 subject: "This is a test",
                 htmlContent: "&lt;html&gt;&lt;body&gt;This is a test&lt;/body&gt;&lt;/html&gt;",
                 textContent: "This is a test"
@@ -140,7 +138,7 @@ Task("SendEmail")
                     SmtpHost = "smtp.gmail.com",
                     Port = 465,
                     EnableSsl = true,
-                    Username = "my_gmail_address&#64;gmail.com",
+                    Username = "my_gmail_address@gmail.com",
                     Password = "my_password"
                 }
         );
@@ -178,11 +176,11 @@ Task("SendEmail")
         };
         var result = Email.SendEmail(
                 senderName: "Bob Smith", 
-                senderAddress: "bob&#64;example.com",
+                senderAddress: "bob@example.com",
                 recipients: new[]
                 {
-                    new Cake.Email.MailAddress("jane&#64;example.com", "Jane Doe"),
-                    new Cake.Email.MailAddress("bob&#64;example.com", "Bob Smith")
+                    new Cake.Email.MailAddress("jane@example.com", "Jane Doe"),
+                    new Cake.Email.MailAddress("bob@example.com", "Bob Smith")
                 },
                 subject: "This is a test",
                 htmlContent: "&lt;html&gt;&lt;body&gt;This is a test&lt;/body&gt;&lt;/html&gt;",
@@ -193,7 +191,7 @@ Task("SendEmail")
                     SmtpHost = "smtp.gmail.com",
                     Port = 465,
                     EnableSsl = true,
-                    Username = "my_gmail_address&#64;gmail.com",
+                    Username = "my_gmail_address@gmail.com",
                     Password = "my_password"
                 }
         );
@@ -213,7 +211,7 @@ Task("SendEmail")
     }
 });
 </code></pre>
-</body></html>
+
 	</section>
                 
             </div>           
@@ -236,22 +234,53 @@ Task("SendEmail")
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top
@@ -268,5 +297,5 @@ Task("SendEmail")
                 }, 500);
             });
         </script>
-    </body>
-</html>
+    
+</body></html>

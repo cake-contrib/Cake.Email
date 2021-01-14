@@ -9,7 +9,6 @@
         <link rel="shortcut icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.Email/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.Email - 2019</title>
-        <link href="/Cake.Email/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.Email/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="/Cake.Email/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
@@ -24,6 +23,7 @@
         <script src="/Cake.Email/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.Email/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.Email/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.Email/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.Email/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.Email/assets/js/respond.min.js"></script>
@@ -85,8 +85,8 @@
                     <ul class="sidebar-menu">
                         
 
-    <li class="header"><i class="fa fa-bookmark"></i> Categories</li>    
-        <li><a href="/Cake.Email/blog/Release">Release</a></li>
+        <li class="header"><i class="fa fa-bookmark"></i> Categories</li>    
+            <li><a href="/Cake.Email/blog/Release">Release</a></li>
     
     <li class="header"><i class="fa fa-calendar"></i> Archive</li>    
         <li><a href="/Cake.Email/blog/archive/2019/04">April, 2019</a></li>
@@ -97,9 +97,9 @@
         <li><a href="/Cake.Email/blog/archive/2017/04">April, 2017</a></li>
         <li><a href="/Cake.Email/blog/archive/2017/02">February, 2017</a></li>
     
-    <li class="header"><i class="fa fa-user"></i> Authors</li>    
-        <li><a href="/Cake.Email/blog/author/gep13">gep13</a></li>
-        <li><a href="/Cake.Email/blog/author/jericho">jericho</a></li>
+        <li class="header"><i class="fa fa-user"></i> Authors</li>    
+            <li><a href="/Cake.Email/blog/author/gep13">gep13</a></li>
+            <li><a href="/Cake.Email/blog/author/jericho">jericho</a></li>
 
                     </ul>
                             
@@ -120,12 +120,12 @@
 
         <h2><a href="/Cake.Email/blog/new-release-0.8.0">New Release - 0.8.0</a></h2>
 
-<dl class="dl-horizontal">
-    <dt><i class="fa fa-calendar"></i> Published</dt>
+<dl class="dl-horizontal" style="margin-bottom: 12px;">
+    <dt style="text-align: left;"><i class="fa fa-calendar"></i> Published</dt>
     <dd>17 April 2019</dd>
-        <dt><i class="fa fa-bookmark"></i> Category</dt>
+        <dt style="text-align: left;"><i class="fa fa-bookmark"></i> Category</dt>
         <dd><a href="/Cake.Email/blog/Release">Release</a></dd>
-            <dt><i class="fa fa-user"></i> Author</dt>
+            <dt style="text-align: left;"><i class="fa fa-user"></i> Author</dt>
         <dd><a href="/Cake.Email/blog/author/jericho">jericho</a></dd>
 </dl>
             <div>
@@ -165,22 +165,53 @@
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top
