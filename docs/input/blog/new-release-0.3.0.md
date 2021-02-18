@@ -9,4 +9,4 @@ Author: jericho
 
 - [__#15__](https://github.com/cake-contrib/Cake.Email/issues/15) Allow email to be sent to multiple recipients
 
-Please do not hesitate to reach out in the [Gitter Channel](https://gitter.im/cake-contrib/Lobby) if you have any issues using this addin.
+Please do not hesitate to reach out in the [GitHub discussions](https://github.com/cake-build/cake/discussions/categories/extension-q-a) if you have any issues using this addin.
