@@ -11,7 +11,7 @@
     <Title>Cake.Email</Title>
     <Summary>Cake build aliases for sending SMTP emails.</Summary>
     <Description>Cake Build addin to provide Aliases for sending emails via SMTP.</Description>
-    <PackageTags>Cake Script Build Email</PackageTags>
+    <PackageTags>cake-addin Cake Script Build Email</PackageTags>
     <Authors>Jericho</Authors>
     <Owners>Jericho</Owners>
     <PackageProjectUrl>https://github.com/cake-contrib/Cake.Email/</PackageProjectUrl>
