@@ -2,9 +2,12 @@
 init:
   - git config --global core.autocrlf true
 
+# scripts to run before build
+before_build:
+  - dotnet --info
+
 # Build script
 build_script:
-  - dotnet --info
   - ps: .\build.ps1 --target=CI
 
 # Tests
@@ -24,7 +27,7 @@ cache:
   - tools -> recipe.cake
 
 # Environment configuration
-image: Visual Studio 2019
+image: Visual Studio 2022
 
 #---------------------------------#
 #  Skip builds for doc changes    #

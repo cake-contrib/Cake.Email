@@ -1,12 +1,18 @@
 issue-labels-include:
-- Breaking change
-- Feature
-- Bug
-- Improvement
-- Documentation
+  - Breaking Change
+  - Bug
+  - New Feature
+  - Improvement
+  - Documentation
+  - Security
 issue-labels-exclude:
-- Build
+  - Question
+  - Duplicate
+  - Invalid
+  - Wontfix
+  - Build
+  - Internal Refactoring
 issue-labels-alias:
-    - name:    Documentation
-      header:  Documentation
-      plural:  Documentation
+  - name:    Documentation
+    header:  Documentation
+    plural:  Documentation

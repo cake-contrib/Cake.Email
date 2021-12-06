@@ -1,6 +1,8 @@
-﻿using Cake.Core;
+using Cake.Core;
 using Cake.Core.Annotations;
 using System;
+
+[assembly: CLSCompliant(true)]
 
 namespace Cake.Email
 {
