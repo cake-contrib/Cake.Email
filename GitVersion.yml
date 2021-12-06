@@ -1,16 +1,26 @@
 mode: ContinuousDelivery
 branches:
-  release:
-    regex: releases?[/-]
+  master:
+    regex: (master|main)
+    mode: ContinuousDelivery
+    tag:
+    increment: Patch
+    prevent-increment-of-merged-branch-version: true
+    track-merge-target: false
+  feature:
+    regex: feature(s)?[/-]
     mode: ContinuousDeployment
-    tag: rc
   develop:
     regex: dev(elop)?(ment)?$
     mode: ContinuousDeployment
-    tag: alpha
+    tag: beta
   hotfix:
     regex: hotfix(es)?[/-]
     mode: ContinuousDeployment
-    tag: beta
+    tag: hotfix
+  release:
+    regex: release(s)?[/-]
+    mode: ContinuousDeployment
+    tag: rc
 ignore:
   sha: []
