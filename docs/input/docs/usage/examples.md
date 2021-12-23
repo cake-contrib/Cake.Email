@@ -74,8 +74,8 @@ Task("SendEmail")
                 senderAddress: "bob@example.com",
                 recipients: new[]
                 {
-                    new Cake.Email.MailAddress("jane@example.com", "Jane Doe"),
-                    new Cake.Email.MailAddress("bob@example.com", "Bob Smith")
+                    new MailAddress("jane@example.com", "Jane Doe"),
+                    new MailAddress("bob@example.com", "Bob Smith")
                 },
                 subject: "This is a test",
                 htmlContent: "<html><body>This is a test</body></html>",
