@@ -6,10 +6,10 @@ Cake.Email is an Addin for [Cake](http://cakebuild.net/) which allows sending of
 
 ## Usage
 
-First, include a reference to this addin in your script like this:
+First, include a reference to this addin in your script like this (of course, replace `x.y.z` with the latest version available on [NuGet](https://www.nuget.org/packages/Cake.Email)):
 
 ```csharp
-#addin nuget:?package=Cake.Email&version=0.8.0&loaddependencies=true
+#addin nuget:?package=Cake.Email&version=x.y.z&loaddependencies=true
 ```
 
 Second, we highly recommend that you add the following 'using' statement in your script. Technically, this is not necessary, but it simplifies dealing with attachements:
@@ -18,13 +18,6 @@ Second, we highly recommend that you add the following 'using' statement in your
 using Cake.Email.Common;
 ```
 
-Also, this addin is designed to take advantage of some of the new features released in CakeBuild version `0.33.0` therefore your `tools\package.config` should look like this:
-
-```xml
-<packages>
-    <package id="Cake" version="0.33.0" />
-</packages>
-```
 
 ## Information
 
