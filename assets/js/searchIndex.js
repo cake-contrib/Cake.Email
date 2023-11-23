@@ -39,14 +39,14 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"EmailSettings",
-            content:"EmailSettings",
+            title:"EmailProvider",
+            content:"EmailProvider",
             description:'',
             tags:''
         },
         {
-            url:'/Cake.Email/api/Cake.Email/EmailSettings',
-            title:"EmailSettings",
+            url:'/Cake.Email/api/Cake.Email/EmailProvider',
+            title:"EmailProvider",
             description:""
         }
     );
@@ -67,20 +67,6 @@ var searchModule = function() {
     a(
         {
             id:2,
-            title:"EmailProvider",
-            content:"EmailProvider",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Email/api/Cake.Email/EmailProvider',
-            title:"EmailProvider",
-            description:""
-        }
-    );
-    a(
-        {
-            id:3,
             title:"EmailResult",
             content:"EmailResult",
             description:'',
@@ -89,6 +75,20 @@ var searchModule = function() {
         {
             url:'/Cake.Email/api/Cake.Email/EmailResult',
             title:"EmailResult",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"EmailSettings",
+            content:"EmailSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Email/api/Cake.Email/EmailSettings',
+            title:"EmailSettings",
             description:""
         }
     );
