@@ -39,20 +39,6 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"EmailAliases",
-            content:"EmailAliases",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/Cake.Email/api/Cake.Email/EmailAliases',
-            title:"EmailAliases",
-            description:""
-        }
-    );
-    a(
-        {
-            id:1,
             title:"EmailProvider",
             content:"EmailProvider",
             description:'',
@@ -66,7 +52,7 @@ var searchModule = function() {
     );
     a(
         {
-            id:2,
+            id:1,
             title:"EmailResult",
             content:"EmailResult",
             description:'',
@@ -75,6 +61,20 @@ var searchModule = function() {
         {
             url:'/Cake.Email/api/Cake.Email/EmailResult',
             title:"EmailResult",
+            description:""
+        }
+    );
+    a(
+        {
+            id:2,
+            title:"EmailAliases",
+            content:"EmailAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.Email/api/Cake.Email/EmailAliases',
+            title:"EmailAliases",
             description:""
         }
     );
