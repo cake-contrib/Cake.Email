@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="5.0.0" PrivateAssets="All" />
-    <PackageReference Include="Cake.Email.Common" Version="4.0.0" />
+    <PackageReference Include="Cake.Email.Common" Version="4.0.1" />
     <PackageReference Include="MailKit" Version="4.8.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
   </ItemGroup>
