@@ -17,7 +17,7 @@ before_build:
 
 # to run your custom scripts instead of automatic MSBuild
 build_script:
-  - ps: .\build.ps1 build.cake --target=AppVeyor
+  - ps: .\build.ps1 recipe.cake --target=CI
 
 # scripts to run after build
 after_build:
@@ -36,11 +36,10 @@ branches:
 
 # Build cache
 cache:
-  - .cake -> build.cake
+  - .cake -> recipe.cake
 
 # Environment configuration
 image:
-  - Ubuntu1804
   - Visual Studio 2022
 
 #  Skip builds for doc changes
