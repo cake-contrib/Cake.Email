@@ -1,7 +1,8 @@
-﻿using Cake.Core;
+using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.Diagnostics;
 using Cake.Email.Common;
+using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System;
@@ -298,7 +299,7 @@ namespace Cake.Email
 						multipart.Add(new MimePart(attachment.MimeType)
 						{
 							ContentId = attachment.ContentId,
-							Content = new MimeContent(attachment.ContentStream, ContentEncoding.Default),
+							Content = new MimeContent(attachment.ContentStream, ContentEncoding.Unspecified),
 							ContentDisposition = new ContentDisposition(disposition),
 							ContentTransferEncoding = ContentEncoding.Base64,
 							FileName = attachment.Name
